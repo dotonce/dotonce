@@ -48,9 +48,9 @@ afterEvaluate {
         publications{
             release(MavenPublication){
                 from components.release
-                groupId = 'com.dotonce'
-                artifactId = 'mainconfig'
-                version = '1.5.7'
+                groupId = 'com'
+                artifactId = 'config'
+                version = '1.5.8'
             }
         }
     }

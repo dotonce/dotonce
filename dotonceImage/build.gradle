@@ -40,9 +40,9 @@ afterEvaluate {
         publications{
             release(MavenPublication){
                 from components.release
-                groupId = 'com.dotonce'
-                artifactId = 'dotonceimage'
-                version = '1.0.1'
+                groupId = 'com'
+                artifactId = 'image'
+                version = '1.0.2'
             }
         }
     }
