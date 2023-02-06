@@ -50,7 +50,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.dotonce'
                 artifactId = 'mainconfig'
-                version = '1.5.3'
+                version = '1.5.4'
             }
         }
     }
