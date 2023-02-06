@@ -1,0 +1,19 @@
+<RelativeLayout android:layout_alignParentTop="true"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/main_images_height"
+    android:id="@+id/relative_layout"
+    android:theme="@style/Theme.MaterialComponents.Light"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        app:shapeAppearance="@style/flipperImage"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_images_height"
+        android:background="@drawable/bg_corner"
+       android:scaleType="fitXY"
+        android:contentDescription="@string/icon"
+        android:id="@+id/imageView"/>
+
+
+</RelativeLayout>

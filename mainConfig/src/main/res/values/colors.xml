@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="purple_500">#FF414141</color>
+    <color name="purple_700">#FF414141</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="black_main_color_night">#FF000000</color>
+    <color name="black_white">#FF000000</color>
+    <color name="black_black_low">#FF000000</color>
+    <color name="white_black">#FFFFFFFF</color>
+    <color name="white_white_low">#FFFFFFFF</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="white_low">#FFDEDEDE</color>
+
+    <color name="lime">#FF32cd32</color>
+    <color name="red">#FFff0000</color>
+    <color name="silver">#FFababab</color>
+    <color name="silver_white_low">#FFababab</color>
+    <color name="silver0_black_low">#FFf6f9f8</color>
+    <color name="silver2">#FFeaeeee</color>
+    <color name="box_main_color">#ECEBEB</color>
+    <color name="silver0">#FFf6f9f8</color>
+    <color name="silver3">#FFa8a9ad</color>
+    <color name="silver4">#FF5e797d</color>
+    <color name="black2">#FF414141</color>
+    <color name="spark_primary_color">#FF000000</color>>
+    <color name="spark_secondary_color">#FF000000</color>
+    <color name="spark_image_tint">#00000000</color>
+    <color name="blue">#FF559de9</color>
+    <color name="fullTransparent">#00000000</color>
+    <color name="smallTransparent">#77FFFFFF</color>
+    <color name="blueTransparent">#88559de9</color>
+    <color name="transparent">#00000000</color>
+    <color name="mainBackground">#FFFFFFFF</color>
+    <color name="chatColor">#FF000000</color>
+    <color name="orange">#FFE28D1E</color>
+    <color name="dark_red">#FFB01616</color>
+    <color name="status">#FFf7f7f7</color>
+    <color name="black_white_low">#FF000000</color>
+    <color name="white_black_low">#FFFFFFFF</color>
+</resources>

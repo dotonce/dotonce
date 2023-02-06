@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    android:visibility="gone"
+    android:id="@+id/layout_loading"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/Theme.MaterialComponents.DayNight">
+    <TextView
+        android:id="@+id/background"
+        android:clickable="true"
+        android:focusable="true"
+        android:alpha="0.7"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:layout_width="match_parent"
+        android:id="@+id/progress_circular"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:indeterminateOnly="true"/>
+
+</FrameLayout>

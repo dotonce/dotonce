@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="today_at">اليوم عند</string>
+    <string name="yesterday_at">أمس عند</string>
+    <string name="ok">حسناً</string>
+    <string name="cancel">إلغاء</string>
+</resources>
