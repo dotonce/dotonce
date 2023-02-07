@@ -1,4 +1,4 @@
-package com.dotonce.mainconfig.Easy;
+package com.dotonce.mainconfig.MainFixed;
 
 import android.app.Activity;
 

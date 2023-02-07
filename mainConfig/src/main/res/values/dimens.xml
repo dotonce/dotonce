@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="main_images_height">190</dimen>
+    <dimen name="main_images_height">190dp</dimen>
+    <dimen name="main_layout_images_height">200dp</dimen>
 </resources>

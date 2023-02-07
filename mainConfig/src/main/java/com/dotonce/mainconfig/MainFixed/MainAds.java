@@ -1,9 +1,7 @@
-package com.dotonce.mainconfig.Fixed;
+package com.dotonce.mainconfig.MainFixed;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-
-import com.dotonce.mainconfig.Easy.ConvertTime;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

@@ -1,10 +1,9 @@
-package com.dotonce.mainconfig.Easy;
+package com.dotonce.mainconfig.MainFixed;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.res.ColorStateList;
 import android.os.Build;
-import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;

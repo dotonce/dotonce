@@ -4,4 +4,9 @@
     <string name="yesterday_at">أمس عند</string>
     <string name="ok">حسناً</string>
     <string name="cancel">إلغاء</string>
+    <string name="update_title">تحديث</string>
+    <string name="update_message">هناك نسخة جديدة متوفرة، هل تريد التحديث الآن؟</string>
+    <string name="update">تحديث</string>
+    <string name="later">لاحقاً</string>
+    <string name="exit">خروج</string>
 </resources>

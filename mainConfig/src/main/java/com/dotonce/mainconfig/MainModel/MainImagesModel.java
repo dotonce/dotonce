@@ -1,12 +1,12 @@
 package com.dotonce.mainconfig.MainModel;
 
 public class MainImagesModel {
-    String id, packageName, name, isLink, action, action_ios, country_id,extra1,extra2;
+    String id, version, url, isLink, action, action_ios, country_id,extra1,extra2;
 
-    public MainImagesModel(String id, String packageName, String name, String isLink, String action, String action_ios, String country_id, String extra1, String extra2) {
+    public MainImagesModel(String id, String version, String url, String isLink, String action, String action_ios, String country_id, String extra1, String extra2) {
         this.id = id;
-        this.packageName = packageName;
-        this.name = name;
+        this.version = version;
+        this.url = url;
         this.isLink = isLink;
         this.action = action;
         this.action_ios = action_ios;
@@ -19,12 +19,12 @@ public class MainImagesModel {
         return id;
     }
 
-    public String getPackageName() {
-        return packageName;
+    public String getVersion() {
+        return version;
     }
 
-    public String getName() {
-        return name;
+    public String getUrl() {
+        return url;
     }
 
     public String getIsLink() {

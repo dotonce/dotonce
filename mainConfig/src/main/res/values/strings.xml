@@ -5,4 +5,10 @@
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
     <string name="icon" translatable="false">Icon</string>
+    <string name="update_title">Update</string>
+    <string name="update_message">There is a new version available, do you want to update now?</string>
+    <string name="update">Update</string>
+    <string name="later">Later</string>
+    <string name="exit">Exit</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
 </resources>

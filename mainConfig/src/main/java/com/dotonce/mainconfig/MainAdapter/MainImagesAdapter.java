@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.bumptech.glide.Glide;
-import com.dotonce.mainconfig.Fixed.MainServerConfig;
 import com.dotonce.mainconfig.MainModel.MainImagesModel;
 import com.dotonce.mainconfig.R;
 import com.google.android.material.imageview.ShapeableImageView;
@@ -49,6 +48,7 @@ public class MainImagesAdapter extends PagerAdapter {
             contentsModel = arrayList.get(position);
             ShapeableImageView imageView = custom.findViewById(R.id.imageView);
             RelativeLayout relativeLayout = custom.findViewById(R.id.relative_layout);
+
             relativeLayout.setOnClickListener(v -> {
                 if(arrayList.get(position).getIsLink().equals("1")){
                     try {
@@ -61,6 +61,9 @@ public class MainImagesAdapter extends PagerAdapter {
                     try {
                         Class<?> action = Class.forName(arrayList.get(position).getAction());
                         Intent intent = new Intent(context, action);
+                        intent.putExtra("action", arrayList.get(position).getAction());
+                        intent.putExtra("extra1", arrayList.get(position).getExtra1());
+                        intent.putExtra("extra2", arrayList.get(position).getExtra2());
                         context.startActivity(intent);
                     } catch (Exception | Error ignored) {
                     }
@@ -70,8 +73,7 @@ public class MainImagesAdapter extends PagerAdapter {
 
 
             });
-            Glide.with(context).load(MainServerConfig.COMMON_IP + "main_images/" +
-                    arrayList.get(position).getName()).into(imageView);
+            Glide.with(context).load(arrayList.get(position).getUrl()).into(imageView);
             container.addView(custom);
             return custom;
         }catch (Exception | Error ignored){}

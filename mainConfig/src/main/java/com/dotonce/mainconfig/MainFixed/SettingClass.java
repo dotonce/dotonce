@@ -1,10 +1,9 @@
-package com.dotonce.mainconfig.Fixed;
+package com.dotonce.mainconfig.MainFixed;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Build;
 
-import com.dotonce.mainconfig.Easy.AppMainSettings;
 import com.dotonce.mainconfig.R;
 import com.google.android.material.appbar.MaterialToolbar;
 

@@ -1,4 +1,4 @@
-package com.dotonce.mainconfig.Fixed;
+package com.dotonce.mainconfig.MainFixed;
 
 public interface MyClass {
     void setInitialize();
