@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="adding_image">
+        <item quantity="one">إضافة الصورة</item>
+        <item quantity="few">إضافة الصور</item>
+        <item quantity="many">إضافة الصور</item>
+        <item quantity="two">إضافة الصور</item>
+        <item quantity="zero">إضافة الصور</item>
+        <item quantity="other">إضافة الصور</item>
+    </plurals>
+</resources>
