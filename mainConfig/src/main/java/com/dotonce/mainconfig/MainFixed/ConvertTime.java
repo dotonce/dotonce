@@ -1,6 +1,8 @@
 package com.dotonce.mainconfig.MainFixed;
 
 import android.app.Activity;
+import android.content.Context;
+import android.util.Log;
 
 import com.dotonce.mainconfig.R;
 
@@ -162,8 +164,65 @@ public class ConvertTime {
                 diff = d2.getTime() - d1.getTime();
             }
         }
-
         return diff / (60 * 1000);
     }
 
+    public static double getTimeInHours(long time){
+        Locale locale= new Locale("en");
+        SimpleDateFormat format =new SimpleDateFormat("yy/MM/dd HH:mm:ss",locale);
+        java.util.Date d1 = null;
+        java.util.Date d2 = null;
+        try {
+            d1 = format.parse(ConvertTime.convertTime2(time));
+            d2 = format.parse(ConvertTime.convertTime2(System.currentTimeMillis()));
+        } catch (Exception | Error e) {
+            e.printStackTrace();
+        }
+
+        double diff = 0;
+        if (d2 != null) {
+            if (d1 != null) {
+                diff = d2.getTime() - d1.getTime();
+            }
+        }
+
+        return diff / (60 * 60 * 1000);
+    }
+    public static String getFullCalculatedTime(Context context, String time){
+
+        double cal =  ConvertTime.getTimeInHours(Long.parseLong(time));
+        if(cal<0){
+            cal = -(cal);
+        }
+        Log.d("----",cal+"");
+        if(cal >= 8640){
+            long cal2 = (long) (((cal / 24) / 30)/12);
+            return context.getResources().getQuantityString(R.plurals.ago_year,Integer.parseInt(String.valueOf(cal2)),cal2,cal2);
+        }
+        if(cal >= 720){
+            long cal2 = (long) ((cal / 24) / 30);
+            return context.getResources().getQuantityString(R.plurals.ago_month,Integer.parseInt(String.valueOf(cal2)),cal2,cal2);
+        }else if(cal >=168){
+            long cal2 = (long) (cal / 24) / 7;
+            return context.getResources().getQuantityString(R.plurals.ago_week,Integer.parseInt(String.valueOf(cal2)),cal2,cal2);
+        }else if(cal >= 24){
+            long cal2 = (long) cal / 24;
+            return context.getResources().getQuantityString(R.plurals.ago_day,Integer.parseInt(String.valueOf(cal2)),cal2,cal2);
+        }else if(cal >= 1){
+            int cal2 = (int) (cal * 1);
+            return context.getResources().getQuantityString(R.plurals.ago_hour,Integer.parseInt(String.valueOf(cal2)),cal2,cal2);
+        }else if(cal>= 0){
+            int cal2 = (int) (cal * 60);
+            if(cal == 0){
+                return context.getResources().getString(R.string.now);
+            }else {
+                return context.getResources().getQuantityString(R.plurals.ago_minute,cal2,cal2);
+            }
+
+
+        }else {
+            return context.getResources().getString(R.string.now);
+        }
+
+    }
 }

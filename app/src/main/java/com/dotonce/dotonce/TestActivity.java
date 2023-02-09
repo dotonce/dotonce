@@ -8,10 +8,13 @@ import android.widget.Toast;
 import com.dotonce.mainconfig.Interfaces.OnMainImagesLoaded;
 import com.dotonce.mainconfig.MainAdapter.MainImagesAdapter;
 import com.dotonce.mainconfig.MainFixed.CheckUpdate;
+import com.dotonce.mainconfig.MainFixed.ConvertTime;
 import com.dotonce.mainconfig.MainModel.MainImagesModel;
 import com.dotonce.mainconfig.Views.AppMainActivity;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class TestActivity extends AppMainActivity {
 

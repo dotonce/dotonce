@@ -9,4 +9,53 @@
     <string name="update">تحديث</string>
     <string name="later">لاحقاً</string>
     <string name="exit">خروج</string>
+    <plurals name="ago_year">
+        <item quantity="zero">منذ %d سنة</item>
+        <item quantity="one">منذ سنة</item>
+        <item quantity="two">منذ سنتين</item>
+        <item quantity="few">منذ %d سنوات</item>
+        <item quantity="many">منذ %d سنة</item>
+        <item quantity="other">منذ %d سنة</item>
+    </plurals>
+    <plurals name="ago_month">
+        <item quantity="zero">منذ %d شهر</item>
+        <item quantity="one">منذ شهر</item>
+        <item quantity="two">منذ شهرين</item>
+        <item quantity="few">منذ %d أشهر</item>
+        <item quantity="many">منذ %d شهر</item>
+        <item quantity="other">منذ %d شهر</item>
+    </plurals>
+    <plurals name="ago_week">
+        <item quantity="zero">منذ %d أسبوع</item>
+        <item quantity="one">منذ أسبوع</item>
+        <item quantity="two">منذ أسبوعين</item>
+        <item quantity="few">منذ %d أسابيع</item>
+        <item quantity="many">منذ %d أسبوع</item>
+        <item quantity="other">منذ %d أسبوع</item>
+    </plurals>
+    <plurals name="ago_day">
+        <item quantity="zero">منذ %d يوم</item>
+        <item quantity="one">منذ يوم</item>
+        <item quantity="two">منذ يومين</item>
+        <item quantity="few">منذ %d أيام</item>
+        <item quantity="many">منذ %d يوم</item>
+        <item quantity="other">منذ %d يوم</item>
+    </plurals>
+    <plurals name="ago_hour">
+        <item quantity="zero">منذ %d ساعة</item>
+        <item quantity="one">منذ ساعة</item>
+        <item quantity="two">منذ ساعتين</item>
+        <item quantity="few">منذ %d ساعات</item>
+        <item quantity="many">منذ %d ساعة</item>
+        <item quantity="other">منذ %d ساعة</item>
+    </plurals>
+    <plurals name="ago_minute">
+        <item quantity="zero">الآن</item>
+        <item quantity="one">منذ دقيقة</item>
+        <item quantity="two">منذ دقيقتين</item>
+        <item quantity="few">منذ %d دقائق</item>
+        <item quantity="many">منذ %d دقيقة</item>
+        <item quantity="other">منذ %d دقيقة</item>
+    </plurals>
+    <string name="now">الآن</string>
 </resources>
