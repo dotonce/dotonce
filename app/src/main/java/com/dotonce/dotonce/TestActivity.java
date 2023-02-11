@@ -24,6 +24,7 @@ public class TestActivity extends AppMainActivity {
         setContentView(com.dotonce.mainconfig.R.layout.activity_app_main);
         setMethods("", "    //**8");
 //        AppMainSettings.mainDialog_background = R.color.white;
+        Toast.makeText(this, ""+ConvertTime.getFullCalculatedTime(this,"318938413000"), Toast.LENGTH_SHORT).show();
         configurationClass.setDataFromServer(3,"https://dotonce.com/dollar/","","leb_dollar", "com.alayan.", "", "", arrayList -> {
             mainImagesAdapter = new MainImagesAdapter(TestActivity.this, arrayList);
             viewPager.setAdapter(mainImagesAdapter);

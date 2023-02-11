@@ -194,7 +194,7 @@ public class ConvertTime {
         if(cal<0){
             cal = -(cal);
         }
-        Log.d("----",cal+"");
+
         if(cal >= 8640){
             long cal2 = (long) (((cal / 24) / 30)/12);
             return context.getResources().getQuantityString(R.plurals.ago_year,Integer.parseInt(String.valueOf(cal2)),cal2,cal2);
