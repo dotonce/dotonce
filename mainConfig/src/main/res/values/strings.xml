@@ -3,6 +3,7 @@
     <string name="today_at">Today at</string>
     <string name="yesterday_at">Yesterday at</string>
     <string name="ok">OK</string>
+    <string name="sure">Are you sure?</string>
     <string name="cancel">Cancel</string>
     <string name="icon" translatable="false">Icon</string>
     <string name="update_title">Update</string>

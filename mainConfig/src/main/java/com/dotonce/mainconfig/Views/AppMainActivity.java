@@ -10,8 +10,11 @@ import android.widget.RelativeLayout;
 
 import androidx.viewpager.widget.ViewPager;
 
+import com.dotonce.mainconfig.Interfaces.PublisherName;
+import com.dotonce.mainconfig.Interfaces.onDialogAction;
 import com.dotonce.mainconfig.MainAdapter.MainImagesAdapter;
 import com.dotonce.mainconfig.MainFixed.AppCompatClass;
+import com.dotonce.mainconfig.MainFixed.MainDialog;
 import com.dotonce.mainconfig.R;
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 
@@ -77,6 +80,54 @@ public class AppMainActivity extends AppCompatClass {
         }catch (Error | Exception ignored){}
     }
 
+    public void onExit(){
+        MainDialog.show(AppMainActivity.this, R.drawable.ic_exit, getString(R.string.exit), getString(R.string.sure),
+                getString(R.string.exit), getString(R.string.cancel), true, new onDialogAction() {
+                    @Override
+                    public void onOkClick() {
+                        finish();
+                    }
 
+                    @Override
+                    public void onCancelClick() {
 
+                    }
+                });
+    }
+
+    @Override
+    public void onBackPressed() {
+        onExit();
+    }
+
+    public void shareApp(String packageName, String app_name) {
+        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        String shareBody = app_name +" \n  https://play.google.com/store/apps/details?id="+packageName+"\n Download now for free";
+        sharingIntent.putExtra(Intent.EXTRA_SUBJECT, app_name);
+        sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
+        startActivity(Intent.createChooser(sharingIntent, "Share via"));
+    }
+
+    public void rateApp(String packageName) {
+        Uri uri = Uri.parse("market://details?id=" + packageName);
+        Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
+                    Intent.FLAG_ACTIVITY_NEW_DOCUMENT |
+                    Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+        }
+        try {
+            startActivity(goToMarket);
+        } catch (ActivityNotFoundException e) {
+            startActivity(new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("http://play.google.com/store/apps/details?id=" + packageName)));
+        }
+    }
+
+    public void moreApps(PublisherName publisher) {
+        Uri url = Uri.parse("http://play.google.com/store/search?q=pub:"+publisher.toString());
+        Intent launch = new Intent(Intent.ACTION_VIEW, url);
+        startActivity(launch);
+    }
 }

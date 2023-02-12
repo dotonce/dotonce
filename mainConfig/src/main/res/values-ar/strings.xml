@@ -3,6 +3,7 @@
     <string name="today_at">اليوم عند</string>
     <string name="yesterday_at">أمس عند</string>
     <string name="ok">حسناً</string>
+    <string name="sure">هل أنت متأكّد؟</string>
     <string name="cancel">إلغاء</string>
     <string name="update_title">تحديث</string>
     <string name="update_message">هناك نسخة جديدة متوفرة، هل تريد التحديث الآن؟</string>
