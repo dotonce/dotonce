@@ -58,4 +58,7 @@
         <item quantity="other">منذ %d دقيقة</item>
     </plurals>
     <string name="now">الآن</string>
+    <string name="network_error_title">خطأ في الشبكة</string>
+    <string name="network_error_message">يرجى التحقق من اتصالك بالشبكة</string>
+    <string name="try_again">أعد المحاولة</string>
 </resources>

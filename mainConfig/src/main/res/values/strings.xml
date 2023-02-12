@@ -36,4 +36,7 @@
         <item quantity="other">%d minutes ago</item>
     </plurals>
     <string name="now">now</string>
+    <string name="network_error_title">Network error!</string>
+    <string name="network_error_message">Please check your network connection</string>
+    <string name="try_again">Try again</string>
 </resources>

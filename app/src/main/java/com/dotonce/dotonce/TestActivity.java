@@ -40,7 +40,7 @@ public class TestActivity extends AppMainActivity {
     @Override
     public void onResume() {
         super.onResume();
-        CheckUpdate.check(TestActivity.this,0,"");
+        //CheckUpdate.check(TestActivity.this,0,"");
         removeRunnable();
         try {
             startAutoSlider(mainImagesAdapter.getCount());

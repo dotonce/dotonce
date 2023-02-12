@@ -1,5 +1,6 @@
 package com.dotonce.mainconfig.MainFixed;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
@@ -9,7 +10,9 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.dotonce.mainconfig.Interfaces.OnMainImagesLoaded;
+import com.dotonce.mainconfig.Interfaces.onDialogAction;
 import com.dotonce.mainconfig.MainModel.MainImagesModel;
+import com.dotonce.mainconfig.R;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -24,131 +27,271 @@ public class ConfigurationClass {
 
     private ArrayList<MainImagesModel> arrayList;
 
-    private final Context context;
+    private final Activity context;
 
-     public ConfigurationClass(Context context){
+     public ConfigurationClass(Activity context){
          this.context = context;
          userData = new UserData(context);
          sharedPreferences = context.getSharedPreferences("appMainSettings", Context.MODE_PRIVATE);
          editor = context.getSharedPreferences("appMainSettings", Context.MODE_PRIVATE).edit();
      }
 
+     private void setData (int appVersion, String IP_AND_DIR, String countryId, String database, String packageName ,String phone, String email, OnMainImagesLoaded onMainImagesLoaded){
+             StringRequest stringRequest = new StringRequest(Request.Method.GET, MainServerConfig.COMMON_IP+"select_configuration.php?key="+
+                     MainServerConfig.DATABASE_VERSION+"&database="+database + "&package=" + packageName + "&phone="+phone+"&email="+email, response -> {
+                 try {
+                     JSONObject jsonObject = new JSONObject(response);
+
+                     try {
+                         JSONArray jsonArray = new JSONArray(jsonObject.getJSONObject("data").getString("configuration"));
+                         if(jsonArray.length() > 0) {
+                             JSONObject jSONObject = jsonArray.getJSONObject(0);
+                             String id = jSONObject.getString("id");
+                             String packageName2 = jSONObject.getString("package");
+                             String version = jSONObject.getString("version");
+                             String version_ios = jSONObject.getString("version_ios");
+                             String update_log = jSONObject.getString("update_log");
+                             String api = jSONObject.getString("api");
+                             String admob_id = jSONObject.getString("admob_id");
+                             String admob_banner_id = jSONObject.getString("admob_banner_id");
+                             String unity_game_id = jSONObject.getString("unity_game_id");
+                             String unity_placement_id = jSONObject.getString("unity_placement_id");
+                             String facebook_id = jSONObject.getString("facebook_id");
+                             String applovin_id = jSONObject.getString("applovin_id");
+                             String applovin_time = jSONObject.getString("applovin_time");
+                             String app_version = jSONObject.getString("app_version");
+                             String admob_time = jSONObject.getString("admob_time");
+                             String unity_time = jSONObject.getString("unity_time");
+                             String facebook_time = jSONObject.getString("facebook_time");
+                             String ad_type = jSONObject.getString("ad_type");
+                             String splash_ad_type = jSONObject.getString("splash_ad_type");
+                             String require_update = jSONObject.getString("require_update");
+                             setSettings(id, packageName2, version, version_ios, update_log,
+                                     api, admob_id, admob_banner_id, admob_time, unity_game_id,
+                                     unity_placement_id, unity_time, facebook_id, facebook_time, ad_type,
+                                     splash_ad_type, app_version,require_update,applovin_id,applovin_time);
+                         }
+                     }catch (Exception | Error error){Log.d(TAG + "_CONFIG", error.toString());}
+
+
+                     try {
+                         JSONArray jsonArray2 = new JSONArray(jsonObject.getJSONObject("data").getString("images"));
+                         if(jsonArray2.length() > 0){
+                             arrayList = new ArrayList<>();
+                             int i =0;
+                             while (i< jsonArray2.length()){
+                                 JSONObject jSONObject1 = jsonArray2.getJSONObject(i);
+                                 String id2 = jSONObject1.getString("id");
+                                 String isLink = jSONObject1.getString("isLink");
+                                 String action = jSONObject1.getString("action");
+                                 String action_ios = jSONObject1.getString("action_ios");
+                                 String name = IP_AND_DIR + "main_images/" + jSONObject1.getString("name");
+                                 String version = jSONObject1.getString("version");
+                                 String extra1 = jSONObject1.getString("extra1");
+                                 String extra2 = jSONObject1.getString("extra2");
+                                 String country_id = jSONObject1.getString("country_id");
+                                 int version2;
+                                 if(version.equals("")){
+                                     version2 = 9999;
+                                 }else {
+                                     version2 = Integer.parseInt(version);
+                                 }
+                                 if(version.equals("")  | (appVersion <= version2)){
+                                     if(country_id.equals("") | country_id.equals(countryId)){
+                                         arrayList.add(new MainImagesModel(id2, version, name, isLink, action, action_ios,country_id,extra1,extra2));
+                                     }
+                                 }
+                                 i++;
+                             }
+                             onMainImagesLoaded.onLoaded(arrayList);
+
+                         }
+                     }catch (Exception | Error error){Log.d(TAG + "_IMAGES", error.toString());}
+
+
+                     try {
+                         JSONArray jsonArray3 = new JSONArray(jsonObject.getJSONObject("data").getString("user"));
+                         if(jsonArray3.length() > 0) {
+                             JSONObject jSONObject3 = jsonArray3.getJSONObject(0);
+                             String id3 = jSONObject3.getString("id");
+                             String name = jSONObject3.getString("name");
+                             String phone3 = jSONObject3.getString("phone");
+                             String email3 = jSONObject3.getString("email");
+                             String icon = jSONObject3.getString("icon");
+                             String banned_message = jSONObject3.getString("banCause");
+                             String country_id = jSONObject3.getString("country_id");
+                             String extra1 = jSONObject3.getString("extra1");
+                             String extra2 = jSONObject3.getString("extra2");
+                             String extra3 = jSONObject3.getString("extra3");
+                             String extra4 = jSONObject3.getString("extra4");
+                             String extra5 = jSONObject3.getString("extra5");
+                             String premium = jSONObject3.getString("premium");
+                             String banned = jSONObject3.getString("banned");
+                             String banned_time = jSONObject3.getString("banTime");
+                             String last_active = jSONObject3.getString("last_active");
+                             long banned_time2, last_active2;
+                             if(banned_time.equals("")){
+                                 banned_time2 = System.currentTimeMillis();
+                             }else {
+                                 banned_time2 = Long.parseLong(banned_time);
+                             }
+                             if(last_active.equals("")){
+                                 last_active2 = System.currentTimeMillis();
+                             }else {
+                                 last_active2 = Long.parseLong(last_active);
+                             }
+                             userData.setUserSettings(id3, name,phone3, email3,icon,premium,banned,
+                                     banned_message,banned_time2,last_active2,country_id,extra1,extra2,
+                                     extra3,extra4,extra5);
+
+                         }
+                     }catch (Exception | Error error){Log.d(TAG + "_USER", error.toString());}
+                 } catch (Exception | Error error) {Log.d(TAG + "_JSON", error.toString());
+                 }
+             }, error -> Log.d(TAG + "_URL", error.toString()));
+
+             RequestQueue requestQueue = Volley.newRequestQueue(context);
+             requestQueue.add(stringRequest);
+         }
+
+
     public void setDataFromServer(int appVersion, String IP_AND_DIR, String countryId, String database, String packageName ,String phone, String email, OnMainImagesLoaded onMainImagesLoaded){
-         StringRequest stringRequest = new StringRequest(Request.Method.GET, MainServerConfig.COMMON_IP+"select_configuration.php?key="+
-                 MainServerConfig.DATABASE_VERSION+"&database="+database + "&package=" + packageName + "&phone="+phone+"&email="+email, response -> {
-            try {
-                JSONObject jsonObject = new JSONObject(response);
+        if (NetworkUtil.isInternetConnected(context)) {
 
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, MainServerConfig.COMMON_IP+"select_configuration.php?key="+
+                    MainServerConfig.DATABASE_VERSION+"&database="+database + "&package=" + packageName + "&phone="+phone+"&email="+email, response -> {
                 try {
-                    JSONArray jsonArray = new JSONArray(jsonObject.getJSONObject("data").getString("configuration"));
-                    if(jsonArray.length() > 0) {
-                        JSONObject jSONObject = jsonArray.getJSONObject(0);
-                        String id = jSONObject.getString("id");
-                        String packageName2 = jSONObject.getString("package");
-                        String version = jSONObject.getString("version");
-                        String version_ios = jSONObject.getString("version_ios");
-                        String update_log = jSONObject.getString("update_log");
-                        String api = jSONObject.getString("api");
-                        String admob_id = jSONObject.getString("admob_id");
-                        String admob_banner_id = jSONObject.getString("admob_banner_id");
-                        String unity_game_id = jSONObject.getString("unity_game_id");
-                        String unity_placement_id = jSONObject.getString("unity_placement_id");
-                        String facebook_id = jSONObject.getString("facebook_id");
-                        String applovin_id = jSONObject.getString("applovin_id");
-                        String applovin_time = jSONObject.getString("applovin_time");
-                        String app_version = jSONObject.getString("app_version");
-                        String admob_time = jSONObject.getString("admob_time");
-                        String unity_time = jSONObject.getString("unity_time");
-                        String facebook_time = jSONObject.getString("facebook_time");
-                        String ad_type = jSONObject.getString("ad_type");
-                        String splash_ad_type = jSONObject.getString("splash_ad_type");
-                        String require_update = jSONObject.getString("require_update");
-                        setSettings(id, packageName2, version, version_ios, update_log,
-                                api, admob_id, admob_banner_id, admob_time, unity_game_id,
-                                unity_placement_id, unity_time, facebook_id, facebook_time, ad_type,
-                                splash_ad_type, app_version,require_update,applovin_id,applovin_time);
-                    }
-                }catch (Exception | Error error){Log.d(TAG + "_CONFIG", error.toString());}
+                    JSONObject jsonObject = new JSONObject(response);
+
+                    try {
+                        JSONArray jsonArray = new JSONArray(jsonObject.getJSONObject("data").getString("configuration"));
+                        if(jsonArray.length() > 0) {
+                            JSONObject jSONObject = jsonArray.getJSONObject(0);
+                            String id = jSONObject.getString("id");
+                            String packageName2 = jSONObject.getString("package");
+                            String version = jSONObject.getString("version");
+                            String version_ios = jSONObject.getString("version_ios");
+                            String update_log = jSONObject.getString("update_log");
+                            String api = jSONObject.getString("api");
+                            String admob_id = jSONObject.getString("admob_id");
+                            String admob_banner_id = jSONObject.getString("admob_banner_id");
+                            String unity_game_id = jSONObject.getString("unity_game_id");
+                            String unity_placement_id = jSONObject.getString("unity_placement_id");
+                            String facebook_id = jSONObject.getString("facebook_id");
+                            String applovin_id = jSONObject.getString("applovin_id");
+                            String applovin_time = jSONObject.getString("applovin_time");
+                            String app_version = jSONObject.getString("app_version");
+                            String admob_time = jSONObject.getString("admob_time");
+                            String unity_time = jSONObject.getString("unity_time");
+                            String facebook_time = jSONObject.getString("facebook_time");
+                            String ad_type = jSONObject.getString("ad_type");
+                            String splash_ad_type = jSONObject.getString("splash_ad_type");
+                            String require_update = jSONObject.getString("require_update");
+                            setSettings(id, packageName2, version, version_ios, update_log,
+                                    api, admob_id, admob_banner_id, admob_time, unity_game_id,
+                                    unity_placement_id, unity_time, facebook_id, facebook_time, ad_type,
+                                    splash_ad_type, app_version,require_update,applovin_id,applovin_time);
+                        }
+                    }catch (Exception | Error error){Log.d(TAG + "_CONFIG", error.toString());}
 
 
-                try {
-                    JSONArray jsonArray2 = new JSONArray(jsonObject.getJSONObject("data").getString("images"));
-                    if(jsonArray2.length() > 0){
-                        arrayList = new ArrayList<>();
-                        int i =0;
-                        while (i< jsonArray2.length()){
-                            JSONObject jSONObject1 = jsonArray2.getJSONObject(i);
-                            String id2 = jSONObject1.getString("id");
-                            String isLink = jSONObject1.getString("isLink");
-                            String action = jSONObject1.getString("action");
-                            String action_ios = jSONObject1.getString("action_ios");
-                            String name = IP_AND_DIR + "main_images/" + jSONObject1.getString("name");
-                            String version = jSONObject1.getString("version");
-                            String extra1 = jSONObject1.getString("extra1");
-                            String extra2 = jSONObject1.getString("extra2");
-                            String country_id = jSONObject1.getString("country_id");
-                            int version2;
-                            if(version.equals("")){
-                                version2 = 9999;
-                            }else {
-                                version2 = Integer.parseInt(version);
-                            }
-                            if(version.equals("")  | (appVersion <= version2)){
-                                if(country_id.equals("") | country_id.equals(countryId)){
-                                arrayList.add(new MainImagesModel(id2, version, name, isLink, action, action_ios,country_id,extra1,extra2));
+                    try {
+                        JSONArray jsonArray2 = new JSONArray(jsonObject.getJSONObject("data").getString("images"));
+                        if(jsonArray2.length() > 0){
+                            arrayList = new ArrayList<>();
+                            int i =0;
+                            while (i< jsonArray2.length()){
+                                JSONObject jSONObject1 = jsonArray2.getJSONObject(i);
+                                String id2 = jSONObject1.getString("id");
+                                String isLink = jSONObject1.getString("isLink");
+                                String action = jSONObject1.getString("action");
+                                String action_ios = jSONObject1.getString("action_ios");
+                                String name = IP_AND_DIR + "main_images/" + jSONObject1.getString("name");
+                                String version = jSONObject1.getString("version");
+                                String extra1 = jSONObject1.getString("extra1");
+                                String extra2 = jSONObject1.getString("extra2");
+                                String country_id = jSONObject1.getString("country_id");
+                                int version2;
+                                if(version.equals("")){
+                                    version2 = 9999;
+                                }else {
+                                    version2 = Integer.parseInt(version);
                                 }
+                                if(version.equals("")  | (appVersion <= version2)){
+                                    if(country_id.equals("") | country_id.equals(countryId)){
+                                        arrayList.add(new MainImagesModel(id2, version, name, isLink, action, action_ios,country_id,extra1,extra2));
+                                    }
+                                }
+                                i++;
                             }
-                            i++;
+                            onMainImagesLoaded.onLoaded(arrayList);
+
                         }
-                        onMainImagesLoaded.onLoaded(arrayList);
-
-                    }
-                }catch (Exception | Error error){Log.d(TAG + "_IMAGES", error.toString());}
+                    }catch (Exception | Error error){Log.d(TAG + "_IMAGES", error.toString());}
 
 
-                try {
-                    JSONArray jsonArray3 = new JSONArray(jsonObject.getJSONObject("data").getString("user"));
-                    if(jsonArray3.length() > 0) {
-                        JSONObject jSONObject3 = jsonArray3.getJSONObject(0);
-                        String id3 = jSONObject3.getString("id");
-                        String name = jSONObject3.getString("name");
-                        String phone3 = jSONObject3.getString("phone");
-                        String email3 = jSONObject3.getString("email");
-                        String icon = jSONObject3.getString("icon");
-                        String banned_message = jSONObject3.getString("banCause");
-                        String country_id = jSONObject3.getString("country_id");
-                        String extra1 = jSONObject3.getString("extra1");
-                        String extra2 = jSONObject3.getString("extra2");
-                        String extra3 = jSONObject3.getString("extra3");
-                        String extra4 = jSONObject3.getString("extra4");
-                        String extra5 = jSONObject3.getString("extra5");
-                        String premium = jSONObject3.getString("premium");
-                        String banned = jSONObject3.getString("banned");
-                        String banned_time = jSONObject3.getString("banTime");
-                        String last_active = jSONObject3.getString("last_active");
-                        long banned_time2, last_active2;
-                        if(banned_time.equals("")){
-                            banned_time2 = System.currentTimeMillis();
-                        }else {
-                            banned_time2 = Long.parseLong(banned_time);
+                    try {
+                        JSONArray jsonArray3 = new JSONArray(jsonObject.getJSONObject("data").getString("user"));
+                        if(jsonArray3.length() > 0) {
+                            JSONObject jSONObject3 = jsonArray3.getJSONObject(0);
+                            String id3 = jSONObject3.getString("id");
+                            String name = jSONObject3.getString("name");
+                            String phone3 = jSONObject3.getString("phone");
+                            String email3 = jSONObject3.getString("email");
+                            String icon = jSONObject3.getString("icon");
+                            String banned_message = jSONObject3.getString("banCause");
+                            String country_id = jSONObject3.getString("country_id");
+                            String extra1 = jSONObject3.getString("extra1");
+                            String extra2 = jSONObject3.getString("extra2");
+                            String extra3 = jSONObject3.getString("extra3");
+                            String extra4 = jSONObject3.getString("extra4");
+                            String extra5 = jSONObject3.getString("extra5");
+                            String premium = jSONObject3.getString("premium");
+                            String banned = jSONObject3.getString("banned");
+                            String banned_time = jSONObject3.getString("banTime");
+                            String last_active = jSONObject3.getString("last_active");
+                            long banned_time2, last_active2;
+                            if(banned_time.equals("")){
+                                banned_time2 = System.currentTimeMillis();
+                            }else {
+                                banned_time2 = Long.parseLong(banned_time);
+                            }
+                            if(last_active.equals("")){
+                                last_active2 = System.currentTimeMillis();
+                            }else {
+                                last_active2 = Long.parseLong(last_active);
+                            }
+                            userData.setUserSettings(id3, name,phone3, email3,icon,premium,banned,
+                                    banned_message,banned_time2,last_active2,country_id,extra1,extra2,
+                                    extra3,extra4,extra5);
+
                         }
-                        if(last_active.equals("")){
-                            last_active2 = System.currentTimeMillis();
-                        }else {
-                            last_active2 = Long.parseLong(last_active);
-                        }
-                        userData.setUserSettings(id3, name,phone3, email3,icon,premium,banned,
-                                banned_message,banned_time2,last_active2,country_id,extra1,extra2,
-                                extra3,extra4,extra5);
+                    }catch (Exception | Error error){Log.d(TAG + "_USER", error.toString());}
+                } catch (Exception | Error error) {Log.d(TAG + "_JSON", error.toString());
+                }
+            }, error -> Log.d(TAG + "_URL", error.toString()));
 
-                    }
-                }catch (Exception | Error error){Log.d(TAG + "_USER", error.toString());}
-            } catch (Exception | Error error) {Log.d(TAG + "_JSON", error.toString());
-            }
-        }, error -> Log.d(TAG + "_URL", error.toString()));
+            RequestQueue requestQueue = Volley.newRequestQueue(context);
+            requestQueue.add(stringRequest);
+        } else {
+            MainDialog.show(context, R.drawable.ic_network_error, context.getString(R.string.network_error_title),
+                    context.getString(R.string.network_error_message), context.getString(R.string.try_again), context.getString(R.string.exit), true,
+                    new onDialogAction() {
+                @Override
+                public void onOkClick() {
 
-        RequestQueue requestQueue = Volley.newRequestQueue(context);
-        requestQueue.add(stringRequest);
+                        setData( appVersion,  IP_AND_DIR,  countryId,  database,  packageName , phone,  email, onMainImagesLoaded);
+
+                }
+
+                @Override
+                public void onCancelClick() {
+                    context.finish();
+                }
+            });
+        }
+
+
     }
 
 
