@@ -14,8 +14,6 @@ import java.io.File;
 public class AppCompatClass extends AppCompatActivity implements MyClass {
     private SharedPreferences.Editor sharedEdit;
     public ConfigurationClass configurationClass;
-    public AdsClass adsClass;
-
     public UserData userData;
 
 
@@ -27,7 +25,6 @@ public class AppCompatClass extends AppCompatActivity implements MyClass {
         sharedEdit=getSharedPreferences("mode",MODE_PRIVATE).edit();
         checkTheme();
         configurationClass = new ConfigurationClass(this);
-        adsClass = new AdsClass(this);
         userData = new UserData(this);
         super.onCreate(savedInstanceState);
 

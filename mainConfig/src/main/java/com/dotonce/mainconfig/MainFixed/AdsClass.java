@@ -1,4 +1,4 @@
-package com.dotonce.mainconfig.MainFixed;
+package com.dotonce.mainconfig.MainFixed;//package com.dotonce.dotonceadmin.CommonApps;
 
 import android.app.Activity;
 import android.content.Context;
@@ -45,6 +45,7 @@ public class AdsClass implements IUnityAdsInitializationListener {
             mainAds.setTimeUnity(String.valueOf(c2.getTimeInMillis()));
             mainAds.setTimeFacebook(String.valueOf(c2.getTimeInMillis()));
             mainAds.setTimeAdmobBanner(String.valueOf(c2.getTimeInMillis()));
+            mainAds.setTimeApplovin(String.valueOf(c2.getTimeInMillis()));
         }
 
         configurationClass = new ConfigurationClass(activity);
@@ -55,25 +56,41 @@ public class AdsClass implements IUnityAdsInitializationListener {
 
     @Deprecated
     public void showAd(){
-        if(configurationClass.getAdType().equals("1")){
-            if(mainAds.getCalculatedTimeAdmob() >= configurationClass.getAdmobTime()) {
-                displayAdmob();
-            }
-            else {
+        if(!Prefs.isPremium(activity)){
+            if(configurationClass.getAdType().equals("1")){
+                if(mainAds.getCalculatedTimeAdmob() >= configurationClass.getAdmobTime()) {
+                    displayAdmob();
+                }
+                else {
+                    if(mainAds.getCalculatedTimeUnity() >= configurationClass.getUnityTime()) {
+                        displayUnity();
+                    }
+                }
+            }else if(configurationClass.getAdType().equals("2")){
                 if(mainAds.getCalculatedTimeUnity() >= configurationClass.getUnityTime()) {
                     displayUnity();
                 }
             }
-        }else if(configurationClass.getAdType().equals("2")){
-            if(mainAds.getCalculatedTimeUnity() >= configurationClass.getUnityTime()) {
-                displayUnity();
+            else if(configurationClass.getAdType().equals("3")){
+                if(mainAds.getCalculatedTimeFacebook() >= configurationClass.getFacebookTime()) {
+                    // displayFacebook();
+                }
+            }
+
+            else if(configurationClass.getAdType().equals("4")){
+                if(mainAds.getCalculatedTimeApplovin() >= configurationClass.getApplovinTime()) {
+                    // displayApplovin();
+                }
             }
         }
+
     }
     public void showAdNoAdmob(){
-        if(!configurationClass.getAdType().equals("0")) {
-            if (mainAds.getCalculatedTimeUnity() >= configurationClass.getUnityTime()) {
-                displayUnity();
+        if(!Prefs.isPremium(activity)){
+            if(!configurationClass.getAdType().equals("0")) {
+                if (mainAds.getCalculatedTimeUnity() >= configurationClass.getUnityTime()) {
+                    displayUnity();
+                }
             }
         }
     }

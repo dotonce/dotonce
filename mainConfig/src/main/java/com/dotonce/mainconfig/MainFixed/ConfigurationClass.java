@@ -54,6 +54,8 @@ public class ConfigurationClass {
                         String unity_game_id = jSONObject.getString("unity_game_id");
                         String unity_placement_id = jSONObject.getString("unity_placement_id");
                         String facebook_id = jSONObject.getString("facebook_id");
+                        String applovin_id = jSONObject.getString("applovin_id");
+                        String applovin_time = jSONObject.getString("applovin_time");
                         String app_version = jSONObject.getString("app_version");
                         String admob_time = jSONObject.getString("admob_time");
                         String unity_time = jSONObject.getString("unity_time");
@@ -64,7 +66,7 @@ public class ConfigurationClass {
                         setSettings(id, packageName2, version, version_ios, update_log,
                                 api, admob_id, admob_banner_id, admob_time, unity_game_id,
                                 unity_placement_id, unity_time, facebook_id, facebook_time, ad_type,
-                                splash_ad_type, app_version,require_update);
+                                splash_ad_type, app_version,require_update,applovin_id,applovin_time);
                     }
                 }catch (Exception | Error error){Log.d(TAG + "_CONFIG", error.toString());}
 
@@ -153,7 +155,8 @@ public class ConfigurationClass {
      private void setSettings(String id,	String packageName,	String version,	String version_ios,	String update_log,
                              String api, String admob_id,	String admob_banner_id,	String admob_time,
                                      String unity_game_id ,String unity_placement_id,	String unity_time,	String facebook_id,
-                                     String facebook_time, String ad_type,	String splash_ad_type,	String app_version, String require_update){
+                                     String facebook_time, String ad_type,	String splash_ad_type,	String app_version,
+                              String require_update, String applovin_id, String  applovin_time){
 
                  editor.putString("id", id);
                  editor.putString("packageName", packageName);
@@ -166,6 +169,8 @@ public class ConfigurationClass {
                  editor.putString("unity_game_id", unity_game_id);
                  editor.putString("unity_placement_id", unity_placement_id);
                  editor.putString("facebook_id", facebook_id);
+                 editor.putString("applovin_id", applovin_id);
+                 editor.putString("applovin_time", applovin_time);
                  editor.putString("app_version", app_version);
                  editor.putString("require_update", require_update);
                  editor.putLong("admob_time", Long.parseLong(admob_time));
@@ -197,6 +202,8 @@ public class ConfigurationClass {
      public String getUnityPlacementId(){return sharedPreferences.getString("unity_placement_id","");}
      public String getApi(){return sharedPreferences.getString("api","");}
      public long getAdmobTime(){return sharedPreferences.getLong("admob_time",System.currentTimeMillis());}
+     public long getApplovinTime(){return sharedPreferences.getLong("applovin_time",System.currentTimeMillis());}
+     public long getApplovinId(){return sharedPreferences.getLong("applovin_id",System.currentTimeMillis());}
      public long getUnityTime(){return sharedPreferences.getLong("unity_time",System.currentTimeMillis());}
      public long getFacebookTime(){return sharedPreferences.getLong("facebook_time",System.currentTimeMillis());}
 

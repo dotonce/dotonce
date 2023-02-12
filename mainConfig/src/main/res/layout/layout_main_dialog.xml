@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    android:id="@+id/relativeLayout"
-    android:theme="@style/Theme.MaterialComponents.Light"
+<RelativeLayout android:id="@+id/relativeLayout"
+    android:theme="@style/Theme.MaterialComponents.DayNight"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/icon"
@@ -15,14 +15,14 @@
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp" />
 
-    <com.google.android.material.textview.MaterialTextView
+    <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@+id/icon"
         android:layout_margin="5dp"/>
 
-    <com.google.android.material.textview.MaterialTextView
+    <TextView
         android:layout_below="@+id/title"
         android:id="@+id/message"
         android:layout_width="wrap_content"
@@ -33,6 +33,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_ok"
         android:text="@string/ok"
+        app:backgroundTint="@null"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/message"
@@ -43,6 +44,7 @@
     <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"
         android:text="@string/cancel"
+        app:backgroundTint="@null"
         android:layout_height="wrap_content"
         android:layout_below="@id/message"
         android:id="@+id/btn_no"

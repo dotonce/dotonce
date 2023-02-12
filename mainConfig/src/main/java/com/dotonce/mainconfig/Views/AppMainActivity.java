@@ -10,16 +10,10 @@ import android.widget.RelativeLayout;
 
 import androidx.viewpager.widget.ViewPager;
 
-import com.dotonce.mainconfig.Interfaces.OnMainImagesLoaded;
-import com.dotonce.mainconfig.Interfaces.onDialogAction;
 import com.dotonce.mainconfig.MainAdapter.MainImagesAdapter;
 import com.dotonce.mainconfig.MainFixed.AppCompatClass;
-import com.dotonce.mainconfig.MainFixed.MainDialog;
-import com.dotonce.mainconfig.MainModel.MainImagesModel;
 import com.dotonce.mainconfig.R;
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
-
-import java.util.ArrayList;
 
 public class AppMainActivity extends AppCompatClass {
     private Runnable runnable=null;

@@ -38,6 +38,10 @@ public class MainAds {
         editor.putString("facebook", time);
         editor.apply();
     }
+    public void setTimeApplovin(String time){
+        editor.putString("applovin", time);
+        editor.apply();
+    }
     public String getTimeAdmob(){
         return shared.getString("admob", String.valueOf(System.currentTimeMillis()));
     }
@@ -50,7 +54,9 @@ public class MainAds {
     public String getTimeAdmobBanner(){
         return shared.getString("admob_banner", String.valueOf(System.currentTimeMillis()));
     }
-
+    public String getTimeAplovin(){
+        return shared.getString("applovin", String.valueOf(System.currentTimeMillis()));
+    }
 
     public long getCalculatedInSeconds(String type){
         Date d1 = null;
@@ -130,6 +136,25 @@ public class MainAds {
         return diff / (60 * 1000);
     }
 
+    public long getCalculatedTimeApplovin(){
+        Date d1 = null;
+        Date d2 = null;
+        try {
+            d1 = format.parse(ConvertTime.convertTime2(Long.parseLong(getTimeAplovin())));
+            d2 = format.parse(ConvertTime.convertTime2(System.currentTimeMillis()));
+        } catch (Exception | Error e) {
+            e.printStackTrace();
+        }
+
+        long diff = 0;
+        if (d2 != null) {
+            if (d1 != null) {
+                diff = d2.getTime() - d1.getTime();
+            }
+        }
+
+        return diff / (60 * 1000);
+    }
     public long getCalculatedTimeAdmob(){
         Date d1 = null;
         Date d2 = null;

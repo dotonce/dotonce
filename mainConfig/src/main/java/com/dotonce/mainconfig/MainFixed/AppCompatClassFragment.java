@@ -12,7 +12,7 @@ import com.dotonce.mainconfig.R;
 public class AppCompatClassFragment extends Fragment implements MyClassFragment {
 
     public ConfigurationClass configurationClass;
-    public AdsClass adsClass;
+
 
     public UserData userData;
 
@@ -42,7 +42,6 @@ public class AppCompatClassFragment extends Fragment implements MyClassFragment 
         v=  inflater.inflate(R.layout.fragment_app_main, container, false);
         if(getActivity() != null){
             configurationClass = new ConfigurationClass(getActivity());
-            adsClass = new AdsClass(getActivity());
             userData = new UserData(getActivity());
             configurationClass = new ConfigurationClass(getActivity());
             userData = new UserData(getActivity());

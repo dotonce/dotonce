@@ -1,20 +1,12 @@
 package com.dotonce.dotonce;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
-import com.dotonce.mainconfig.Interfaces.OnMainImagesLoaded;
 import com.dotonce.mainconfig.MainAdapter.MainImagesAdapter;
+import com.dotonce.mainconfig.MainFixed.AppMainSettings;
 import com.dotonce.mainconfig.MainFixed.CheckUpdate;
-import com.dotonce.mainconfig.MainFixed.ConvertTime;
-import com.dotonce.mainconfig.MainModel.MainImagesModel;
 import com.dotonce.mainconfig.Views.AppMainActivity;
-
-import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.Calendar;
 
 public class TestActivity extends AppMainActivity {
 
@@ -22,10 +14,13 @@ public class TestActivity extends AppMainActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(com.dotonce.mainconfig.R.layout.activity_app_main);
-        setMethods("", "    //**8");
-//        AppMainSettings.mainDialog_background = R.color.white;
-        Toast.makeText(this, ""+ConvertTime.getFullCalculatedTime(this,"318938413000"), Toast.LENGTH_SHORT).show();
-        configurationClass.setDataFromServer(3,"https://dotonce.com/dollar/","","leb_dollar", "com.alayan.", "", "", arrayList -> {
+        setMethods("", "");
+        AppMainSettings.mainDialog_background = R.style.mainBackground;
+        AppMainSettings.mainDialog_titleStyle = R.style.detail;
+        AppMainSettings.mainDialog_messageStyle = R.style.detail;
+        AppMainSettings.mainDialog_buttonsStyle = R.style.mainButton;
+
+        configurationClass.setDataFromServer(3,"","","", "", "", "", arrayList -> {
             mainImagesAdapter = new MainImagesAdapter(TestActivity.this, arrayList);
             viewPager.setAdapter(mainImagesAdapter);
             dotsIndicator.attachTo(viewPager);
