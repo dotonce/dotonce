@@ -49,7 +49,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.dotonce'
                 artifactId = 'image'
-                version = '1.0'
+                version = '1.5'
             }
         }
     }
