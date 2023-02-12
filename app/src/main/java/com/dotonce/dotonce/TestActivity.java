@@ -2,6 +2,7 @@ package com.dotonce.dotonce;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.dotonce.mainconfig.MainAdapter.MainImagesAdapter;
 import com.dotonce.mainconfig.MainFixed.AppMainSettings;
@@ -13,8 +14,10 @@ public class TestActivity extends AppMainActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(com.dotonce.mainconfig.R.layout.activity_app_main);
+        setContentView(R.layout.activity_test);
         setMethods("", "");
+        TextView textView = findViewById(R.id.text1);
+        textView.setText("sdsd");
         AppMainSettings.mainDialog_background = R.style.mainBackground;
         AppMainSettings.mainDialog_titleStyle = R.style.detail;
         AppMainSettings.mainDialog_messageStyle = R.style.detail;

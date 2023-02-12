@@ -4,5 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TestActivity">
+    <include layout="@layout/layout_toolbar"/>
+    <include layout="@layout/layout_main_images"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/text1"/>
 
 </RelativeLayout>

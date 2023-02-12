@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.widget.RelativeLayout;
 
+import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 
 import com.dotonce.mainconfig.Interfaces.PublisherName;
@@ -27,28 +28,19 @@ public class AppMainActivity extends AppCompatClass {
     public RelativeLayout layout_images;
     public MainImagesAdapter mainImagesAdapter;
 
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_app_main);
-        setMethods("","");
+        setInit();
     }
 
-    @Override
-    public void setInitialize() {
-        super.setInitialize();
+    private void setInit() {
         handler=new Handler();
         viewPager = findViewById(R.id.viewPager);
         dotsIndicator = findViewById(R.id.dots_indicator);
         layout_images = findViewById(R.id.layout_images);
     }
 
-    @Override
-    public void setActions() {
-        super.setActions();
-
-    }
     @Override
     public void onPause() {
         removeRunnable();
