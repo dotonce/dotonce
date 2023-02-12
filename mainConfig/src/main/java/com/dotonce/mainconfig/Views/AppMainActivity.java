@@ -28,13 +28,8 @@ public class AppMainActivity extends AppCompatClass {
     public RelativeLayout layout_images;
     public MainImagesAdapter mainImagesAdapter;
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setInit();
-    }
 
-    private void setInit() {
+    public void setInit() {
         handler=new Handler();
         viewPager = findViewById(R.id.viewPager);
         dotsIndicator = findViewById(R.id.dots_indicator);

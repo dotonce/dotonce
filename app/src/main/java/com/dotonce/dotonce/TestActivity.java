@@ -1,6 +1,7 @@
 package com.dotonce.dotonce;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -16,28 +17,10 @@ public class TestActivity extends AppMainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
         setMethods("", "");
-        TextView textView = findViewById(R.id.text1);
-        textView.setText("sdsd");
         AppMainSettings.mainDialog_background = R.style.mainBackground;
         AppMainSettings.mainDialog_titleStyle = R.style.detail;
         AppMainSettings.mainDialog_messageStyle = R.style.detail;
         AppMainSettings.mainDialog_buttonsStyle = R.style.mainButton;
-
-        configurationClass.setDataFromServer(3,"","","", "", "", "", arrayList -> {
-            mainImagesAdapter = new MainImagesAdapter(TestActivity.this, arrayList);
-            viewPager.setAdapter(mainImagesAdapter);
-            dotsIndicator.attachTo(viewPager);
-            removeRunnable();
-            if(arrayList.size() == 0){
-                layout_images.setVisibility(View.GONE);
-            }
-            else {
-                layout_images.setVisibility(View.VISIBLE);
-            }
-            try {
-                startAutoSlider(mainImagesAdapter.getCount());
-            }catch (Error | Exception ignored){}
-        });
 
     }
     @Override
