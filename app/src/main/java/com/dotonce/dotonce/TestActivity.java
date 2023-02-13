@@ -8,6 +8,8 @@ import com.dotonce.mainconfig.Interfaces.OnResponseOne;
 import com.dotonce.mainconfig.Interfaces.OnResponsetwo;
 import com.dotonce.mainconfig.MainAdapter.MainImagesAdapter;
 import com.dotonce.mainconfig.MainFixed.AppMainSettings;
+import com.dotonce.mainconfig.MainFixed.MainTopics;
+import com.dotonce.mainconfig.MainFixed.OpenFeedback;
 import com.dotonce.mainconfig.Views.AppMainActivity;
 
 public class TestActivity extends AppMainActivity {
@@ -23,6 +25,8 @@ public class TestActivity extends AppMainActivity {
         AppMainSettings.main_detail = R.style.title;
         AppMainSettings.main_title = R.style.detail;
         AppMainSettings.main_btn = R.style.mainButton;
+        MainTopics.dotonce_api ="BAoTU7XNNyCVFUFor0Sl3KcmCqQP3EMCr8EwWSTqnD8GT3l0Kv5H6Nxaf_ttUOt-xWt_jshiKiyXA4gnN5BWhvQ";
+        OpenFeedback.open(TestActivity.this,"","","","+96170208913","","","0372");
 
        configurationClass.setDataFromServer(BuildConfig.VERSION_CODE, "https://dotonce.com/info/", "", "infoeveryday", getPackageName(), "", "", "",
                "media", arrayList -> {

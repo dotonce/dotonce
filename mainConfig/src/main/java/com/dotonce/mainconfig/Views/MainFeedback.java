@@ -1,11 +1,7 @@
 package com.dotonce.mainconfig.Views;
 
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -109,7 +105,7 @@ public class MainFeedback extends AppCompatClass {
                                 if(from.equals("")){
                                     from = email;
                                 }
-                                Notification.Send(configurationClass.getApi(), "New "+toolbar_title+" from "+ from, edit_description.getText().toString(),
+                                Notification.Send(MainTopics.dotonce_api, "New "+toolbar_title+" from "+ from, edit_description.getText().toString(),
                                         "", MainTopics.dotonce_admin, MainTopics.dotonce_splash, package_name, "0", "0","","Feedbacks","");
                             }, error -> {
                             }
