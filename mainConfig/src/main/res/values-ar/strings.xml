@@ -6,8 +6,10 @@
     <string name="sure">هل أنت متأكّد؟</string>
     <string name="cancel">إلغاء</string>
     <string name="update_title">تحديث</string>
+    <string name="send_message">هل تريد الإرسال؟</string>
     <string name="update_message">هناك نسخة جديدة متوفرة، هل تريد التحديث الآن؟</string>
     <string name="update">تحديث</string>
+    <string name="policy">سياسة الخصوصيّة</string>
     <string name="later">لاحقاً</string>
     <string name="exit">خروج</string>
     <plurals name="ago_year">
@@ -62,4 +64,6 @@
     <string name="network_error_title">خطأ في الشبكة</string>
     <string name="network_error_message">يرجى التحقق من اتصالك بالشبكة</string>
     <string name="try_again">أعد المحاولة</string>
+    <string name="enter_a_message">أدخل رسالة</string>
+    <string name="send">إرسال</string>
 </resources>

@@ -7,8 +7,10 @@
     <string name="cancel">Cancel</string>
     <string name="icon" translatable="false">Icon</string>
     <string name="update_title">Update</string>
+    <string name="send_message">Do you want to send?</string>
     <string name="update_message">There is a new version available, do you want to update now?</string>
     <string name="update">Update</string>
+    <string name="policy">Privacy policy</string>
     <string name="later">Later</string>
     <string name="exit">Exit</string>
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
@@ -40,4 +42,6 @@
     <string name="network_error_title">Network error!</string>
     <string name="network_error_message">Please check your network connection</string>
     <string name="try_again">Try again</string>
+    <string name="enter_a_message">Enter a message</string>
+    <string name="send">Send</string>
 </resources>

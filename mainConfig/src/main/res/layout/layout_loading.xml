@@ -9,6 +9,7 @@
     <TextView
         android:id="@+id/background"
         android:clickable="true"
+        android:background="@color/black"
         android:focusable="true"
         android:alpha="0.7"
         android:layout_width="match_parent"

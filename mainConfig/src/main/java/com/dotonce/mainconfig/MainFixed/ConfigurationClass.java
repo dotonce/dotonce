@@ -10,6 +10,8 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.dotonce.mainconfig.Interfaces.OnMainImagesLoaded;
+import com.dotonce.mainconfig.Interfaces.OnResponseOne;
+import com.dotonce.mainconfig.Interfaces.OnResponsetwo;
 import com.dotonce.mainconfig.Interfaces.onDialogAction;
 import com.dotonce.mainconfig.MainModel.MainImagesModel;
 import com.dotonce.mainconfig.R;
@@ -155,11 +157,11 @@ public class ConfigurationClass {
          }
 
 
-    public void setDataFromServer(int appVersion, String IP_AND_DIR, String countryId, String database, String packageName ,String phone, String email, OnMainImagesLoaded onMainImagesLoaded){
+    public void setDataFromServer(int appVersion, String IP_AND_DIR, String countryId, String database, String packageName , String phone, String email, String response_1_table, String response_2_table, OnMainImagesLoaded onMainImagesLoaded, OnResponseOne onResponseOne, OnResponsetwo onResponsetwo){
         if (NetworkUtil.isInternetConnected(context)) {
-
             StringRequest stringRequest = new StringRequest(Request.Method.GET, MainServerConfig.COMMON_IP+"select_configuration.php?key="+
-                    MainServerConfig.DATABASE_VERSION+"&database="+database + "&package=" + packageName + "&phone="+phone+"&email="+email, response -> {
+                    MainServerConfig.DATABASE_VERSION+"&database="+database + "&package=" + packageName + "&phone="+phone+"&email="+email+"&response1="+
+                    response_1_table+"&response2="+response_2_table, response -> {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
 
@@ -267,6 +269,22 @@ public class ConfigurationClass {
 
                         }
                     }catch (Exception | Error error){Log.d(TAG + "_USER", error.toString());}
+                    if(!response_1_table.equals("")){
+                        try {
+                            JSONArray jsonArrayOne = new JSONArray(jsonObject.getJSONObject("data").getString("response1"));
+                            onResponseOne.onResponseOne(jsonArrayOne.toString());
+                        }catch (Exception | Error error){
+                            onResponseOne.onFailedOne(error.toString());
+                        }
+                    }
+                    if(!response_2_table.equals("")){
+                        try {
+                            JSONArray jsonArrayOne = new JSONArray(jsonObject.getJSONObject("data").getString("response2"));
+                            onResponsetwo.onResponseTwo(jsonArrayOne.toString());
+                        }catch (Exception | Error error){
+                            onResponsetwo.onFailedTwo(error.toString());
+                        }
+                    }
                 } catch (Exception | Error error) {Log.d(TAG + "_JSON", error.toString());
                 }
             }, error -> Log.d(TAG + "_URL", error.toString()));

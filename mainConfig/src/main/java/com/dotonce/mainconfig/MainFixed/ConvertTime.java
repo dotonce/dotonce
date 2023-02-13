@@ -2,7 +2,6 @@ package com.dotonce.mainconfig.MainFixed;
 
 import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 
 import com.dotonce.mainconfig.R;
 
@@ -17,8 +16,6 @@ public class ConvertTime {
      * example Today at 9:00 AM
      */
     public static String convertTime(Activity activity,long time) {
-        CheckLanguage checkLanguage=new CheckLanguage(activity);
-        String lang=checkLanguage.getLanguage();
         String date,am,pm;
         String currentDate = convertTime(System.currentTimeMillis());
         String contentDate = convertTime(time);
@@ -27,7 +24,7 @@ public class ConvertTime {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(netDate);
         calendar.add(Calendar.DATE, -1);
-        if(lang.equals("en")){
+        if(CheckLanguage.getLanguage(activity).equals("en")){
             am=" AM";
             pm=" PM";
         }
