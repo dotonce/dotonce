@@ -8,8 +8,10 @@ import com.dotonce.mainconfig.Interfaces.OnResponseOne;
 import com.dotonce.mainconfig.Interfaces.OnResponsetwo;
 import com.dotonce.mainconfig.MainAdapter.MainImagesAdapter;
 import com.dotonce.mainconfig.MainFixed.AppMainSettings;
+import com.dotonce.mainconfig.MainFixed.CheckUpdate;
 import com.dotonce.mainconfig.MainFixed.MainTopics;
 import com.dotonce.mainconfig.MainFixed.OpenFeedback;
+import com.dotonce.mainconfig.MainFixed.OpenPrivacyPolicy;
 import com.dotonce.mainconfig.Views.AppMainActivity;
 
 public class TestActivity extends AppMainActivity {
@@ -70,7 +72,7 @@ public class TestActivity extends AppMainActivity {
     @Override
     public void onResume() {
         super.onResume();
-        //CheckUpdate.check(TestActivity.this,0,"");
+        CheckUpdate.check(TestActivity.this,0,"");
         removeRunnable();
         try {
             startAutoSlider(mainImagesAdapter.getCount());

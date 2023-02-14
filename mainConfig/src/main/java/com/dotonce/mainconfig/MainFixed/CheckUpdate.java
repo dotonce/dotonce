@@ -12,7 +12,14 @@ import com.dotonce.mainconfig.R;
 public class CheckUpdate {
     public static void check(Activity activity, int appVersion, String packageName){
         ConfigurationClass configurationClass= new ConfigurationClass(activity);
-        if(Integer.parseInt(configurationClass.getVersion()) > appVersion){
+        int version = 0;
+        if(!configurationClass.getVersion().equals("")){
+            try {
+                version = Integer.parseInt(configurationClass.getVersion());
+            }catch (Exception | Error ignored){}
+
+        }
+        if(version > appVersion){
             if(configurationClass.isRequireUpdate()){
                 MainDialog.show(activity, R.drawable.ic_update, activity.getString(R.string.update),
                         activity.getString(R.string.update_message) + "\n\n\n" + configurationClass.getUpdateLog(),

@@ -350,7 +350,7 @@ public class ConfigurationClass {
 
      public String getId(){return sharedPreferences.getString("id","");}
      public String getPackageName(){return sharedPreferences.getString("packageName","");}
-     public String getVersion(){return sharedPreferences.getString("version","");}
+     public String getVersion(){return sharedPreferences.getString("version","0");}
      public String getVersionIOS(){return sharedPreferences.getString("version_ios","");}
      public String getAppVersion(){return sharedPreferences.getString("app_version","");}
      public String getUpdateLog(){return sharedPreferences.getString("update_log","");}

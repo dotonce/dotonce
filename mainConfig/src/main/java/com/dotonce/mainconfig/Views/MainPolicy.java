@@ -14,7 +14,7 @@ import com.dotonce.mainconfig.R;
 public class MainPolicy extends AppCompatClass {
     private  WebView webView;
     private RelativeLayout relativeLayout;
-    private String url;
+    private String url="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
