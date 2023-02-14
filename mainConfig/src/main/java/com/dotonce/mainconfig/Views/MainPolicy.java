@@ -39,7 +39,9 @@ public class MainPolicy extends AppCompatClass {
     @Override
     public void setActions() {
         super.setActions();
-        Paris.style(relativeLayout).apply(AppMainSettings.main_background);
+        try {
+            Paris.style(relativeLayout).apply(AppMainSettings.main_background);
+        }catch (Exception | Error ignored){}
         webView.setWebViewClient(new webViewClient());
         webView.loadUrl(url);
     }

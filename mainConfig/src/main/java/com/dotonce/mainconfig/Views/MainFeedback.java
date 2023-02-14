@@ -69,11 +69,14 @@ public class MainFeedback extends AppCompatClass {
     @Override
     public void setActions() {
         super.setActions();
-        Paris.style(text_email).apply(AppMainSettings.feedbackEmail);
-        Paris.style(edit_description).apply(AppMainSettings.feedbackDescription);
-        Paris.style(relativeLayout).apply(AppMainSettings.main_background);
-        Paris.style(btn_send).apply(AppMainSettings.main_btn);
-        if(email.equals("") && phone.equals("")){
+        try {
+            Paris.style(text_email).apply(AppMainSettings.feedbackEmail);
+            Paris.style(edit_description).apply(AppMainSettings.feedbackDescription);
+            Paris.style(relativeLayout).apply(AppMainSettings.main_background);
+            Paris.style(btn_send).apply(AppMainSettings.main_btn);
+
+        }catch (Exception | Error ignored){}
+          if(email.equals("") && phone.equals("")){
             text_email.setVisibility(View.GONE);
         }
         if(!email.equals("")){

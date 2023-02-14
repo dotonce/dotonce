@@ -18,6 +18,8 @@ public class AppCompatClass extends AppCompatActivity implements MyClass {
 
 
 
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         LanguageManger languageManger=new LanguageManger(this);

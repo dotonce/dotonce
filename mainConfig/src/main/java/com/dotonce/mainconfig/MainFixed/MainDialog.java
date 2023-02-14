@@ -57,11 +57,13 @@ public class MainDialog {
             d_icon.setImageTintList(ColorStateList.valueOf(activity.getResources().getColor(color.black_white)));
         }
 
+        try{
         Paris.style(d_btn_no).apply(AppMainSettings.main_btn);
         Paris.style(d_btn_ok).apply(AppMainSettings.main_btn);
         Paris.style(relativeLayout).apply(AppMainSettings.main_background);
         Paris.style(d_title).apply(AppMainSettings.main_title);
         Paris.style(d_message).apply(AppMainSettings.main_detail);
+        }catch (Exception | Error ignored){}
         builder.setView(dialogView);
         alertDialog = builder.create();
         if (dialogView.getParent() != null) {
