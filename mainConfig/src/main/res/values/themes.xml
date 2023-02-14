@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="defaultStyle" parent="Theme.MaterialComponents.Light">
+    <style name="defaultStyle">
 
     </style>
     <style name="flipperImage">

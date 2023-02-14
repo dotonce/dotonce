@@ -10,5 +10,6 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:id="@+id/text1"/>
+    <include layout="@layout/layout_loading"/>
 
 </RelativeLayout>

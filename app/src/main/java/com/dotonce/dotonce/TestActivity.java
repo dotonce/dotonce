@@ -9,6 +9,7 @@ import com.dotonce.mainconfig.Interfaces.OnResponsetwo;
 import com.dotonce.mainconfig.MainAdapter.MainImagesAdapter;
 import com.dotonce.mainconfig.MainFixed.AppMainSettings;
 import com.dotonce.mainconfig.MainFixed.CheckUpdate;
+import com.dotonce.mainconfig.MainFixed.LoadingLayout;
 import com.dotonce.mainconfig.MainFixed.MainTopics;
 import com.dotonce.mainconfig.MainFixed.OpenFeedback;
 import com.dotonce.mainconfig.MainFixed.OpenPrivacyPolicy;
@@ -23,6 +24,7 @@ public class TestActivity extends AppMainActivity {
         setMethods("", "");
         TextView textView = findViewById(R.id.text1);
         setInit();
+        LoadingLayout.show(TestActivity.this);
         AppMainSettings.main_background = R.style.mainBackground;
         AppMainSettings.main_detail = R.style.title;
         AppMainSettings.main_title = R.style.detail;

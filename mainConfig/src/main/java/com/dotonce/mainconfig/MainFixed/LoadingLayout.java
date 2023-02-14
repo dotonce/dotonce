@@ -12,8 +12,8 @@ public class LoadingLayout {
 
     public static void show(Activity activity){
         FrameLayout layout_loading = activity.findViewById(R.id.layout_loading);
-        CircularProgressIndicator progress_circular = activity.findViewById(R.id.progress_circular);
-        Paris.style(progress_circular).apply(AppMainSettings.mainProgress);
+        CircularProgressIndicator progress_circular = activity.findViewById(R.id.progress_circular_loading);
+        progress_circular.setIndicatorColor(activity.getResources().getColor(AppMainSettings.mainProgressColor));
         layout_loading.setVisibility(View.VISIBLE);
     }
 

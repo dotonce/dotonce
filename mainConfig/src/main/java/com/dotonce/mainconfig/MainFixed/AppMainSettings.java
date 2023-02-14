@@ -12,6 +12,6 @@ public class AppMainSettings {
     public static int main_detail = R.style.defaultStyle;
     public static int feedbackEmail = R.style.defaultStyle;
     public static int feedbackDescription = R.style.defaultStyle;
-    public static int mainProgress = R.style.defaultStyle;
+    public static int mainProgressColor = R.color.black;
 
 }
