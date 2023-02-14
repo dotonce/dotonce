@@ -36,7 +36,6 @@ dependencies {
     implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.work:work-runtime:2.8.0'
-    implementation 'com.unity3d.ads:unity-ads:4.5.0'
     implementation 'com.google.firebase:firebase-ads:21.5.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
@@ -51,7 +50,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.dotonce'
                 artifactId = 'config'
-                version = '1.6.3'
+                version = '1.6.4'
             }
         }
     }
