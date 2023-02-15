@@ -157,11 +157,11 @@ public class ConfigurationClass {
          }
 
 
-    public void setDataFromServer(int appVersion, String IP_AND_DIR, String countryId, String database, String packageName , String phone, String email, String response_1_table, String response_2_table, OnMainImagesLoaded onMainImagesLoaded, OnResponseOne onResponseOne, OnResponsetwo onResponsetwo){
+    public void setDataFromServer(int appVersion, String IP_AND_DIR, String countryId, String database, String packageName , String phone, String email,String user_icon, String user_name, String response_1_table, String response_2_table, OnMainImagesLoaded onMainImagesLoaded, OnResponseOne onResponseOne, OnResponsetwo onResponsetwo){
         if (NetworkUtil.isInternetConnected(context)) {
-            StringRequest stringRequest = new StringRequest(Request.Method.GET, MainServerConfig.COMMON_IP+"select_configuration.php?key="+
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, MainServerConfig.COMMON_IP+"select_configuration_v2.php?key="+
                     MainServerConfig.DATABASE_VERSION+"&database="+database + "&package=" + packageName + "&phone="+phone+"&email="+email+"&response1="+
-                    response_1_table+"&response2="+response_2_table, response -> {
+                    response_1_table+"&response2="+response_2_table+"&icon="+user_icon+"&name="+user_name, response -> {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
 
