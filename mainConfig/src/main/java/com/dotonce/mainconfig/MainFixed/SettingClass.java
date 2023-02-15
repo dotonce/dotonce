@@ -23,6 +23,7 @@ public class SettingClass {
     public void setSetting(){
         MaterialToolbar materialToolbar = activity.findViewById(R.id.generalToolbar);
         materialToolbar.setNavigationIcon(activity.getResources().getDrawable(R.drawable.ic_back));
+        materialToolbar.setNavigationIconTint(activity.getResources().getColor(AppMainSettings.toolbar_navigation_tint));
         materialToolbar.setNavigationOnClickListener(v -> activity.onBackPressed());
         materialToolbar.setTitle(title);
         materialToolbar.setSubtitle(subtitle);

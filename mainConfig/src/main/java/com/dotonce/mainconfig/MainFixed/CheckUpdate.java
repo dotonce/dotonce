@@ -22,7 +22,7 @@ public class CheckUpdate {
         if(version > appVersion){
             if(configurationClass.isRequireUpdate()){
                 MainDialog.show(activity, R.drawable.ic_update, activity.getString(R.string.update),
-                        activity.getString(R.string.update_message) + "\n\n\n" + configurationClass.getUpdateLog(),
+                        activity.getString(R.string.update_message) + configurationClass.getUpdateLog(),
                         activity.getString(R.string.update), activity.getString(R.string.exit), true, new onDialogAction() {
                             @Override
                             public void onOkClick() {
@@ -51,7 +51,7 @@ public class CheckUpdate {
                         });
             }else{
                 MainDialog.show(activity, R.drawable.ic_update, activity.getString(R.string.update),
-                        activity.getString(R.string.update_message) + "\n\n\n" + configurationClass.getUpdateLog(),
+                        activity.getString(R.string.update_message) + configurationClass.getUpdateLog(),
                         activity.getString(R.string.update), activity.getString(R.string.later), true, new onDialogAction() {
                             @Override
                             public void onOkClick() {
