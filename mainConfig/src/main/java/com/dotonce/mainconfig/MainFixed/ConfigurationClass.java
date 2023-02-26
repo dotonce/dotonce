@@ -331,12 +331,12 @@ public class ConfigurationClass {
                  editor.putString("unity_placement_id", unity_placement_id);
                  editor.putString("facebook_id", facebook_id);
                  editor.putString("applovin_id", applovin_id);
-                 editor.putString("applovin_time", applovin_time);
                  editor.putString("app_version", app_version);
                  editor.putString("require_update", require_update);
                  editor.putLong("admob_time", Long.parseLong(admob_time));
                  editor.putLong("unity_time", Long.parseLong(unity_time));
                  editor.putLong("facebook_time", Long.parseLong(facebook_time));
+                 editor.putLong("applovin_time", Long.parseLong(applovin_time));
                  if(!userData.isPreimum()){
                      editor.putString("ad_type", ad_type);
                      editor.putString("splash_ad_type", splash_ad_type);
@@ -364,7 +364,7 @@ public class ConfigurationClass {
      public String getApi(){return sharedPreferences.getString("api","");}
      public long getAdmobTime(){return sharedPreferences.getLong("admob_time",System.currentTimeMillis());}
      public long getApplovinTime(){return sharedPreferences.getLong("applovin_time",System.currentTimeMillis());}
-     public long getApplovinId(){return sharedPreferences.getLong("applovin_id",System.currentTimeMillis());}
+     public String getApplovinId(){return sharedPreferences.getString("applovin_id","");}
      public long getUnityTime(){return sharedPreferences.getLong("unity_time",System.currentTimeMillis());}
      public long getFacebookTime(){return sharedPreferences.getLong("facebook_time",System.currentTimeMillis());}
 
