@@ -3,6 +3,8 @@ package com.dotonce.mainconfig.Views;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
+import android.os.Build;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -44,7 +46,11 @@ public class InformationCollect {
             Paris.style(layout_accept).apply(AppMainSettings.main_background);
             text_title.setTextSize(TypedValue.COMPLEX_UNIT_SP,22f);
             text_title2.setTextSize(TypedValue.COMPLEX_UNIT_SP,22f);
-
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                radioButtonAR.setButtonTintList(ColorStateList.valueOf(context.getResources().getColor(AppMainSettings.mainProgressColor)));
+                radioButtonEN.setButtonTintList(ColorStateList.valueOf(context.getResources().getColor(AppMainSettings.mainProgressColor)));
+                checkBox.setButtonTintList(ColorStateList.valueOf(context.getResources().getColor(AppMainSettings.mainProgressColor)));
+            }
 
             radioButtonEN.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
