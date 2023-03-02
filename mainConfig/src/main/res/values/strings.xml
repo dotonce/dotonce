@@ -44,4 +44,22 @@
     <string name="try_again">Try again</string>
     <string name="enter_a_message">Enter a message</string>
     <string name="send">Send</string>
+    <string name="chat_terms">Chat terms</string>
+    <string name="user_collect">Collect user information</string>
+    <string name="i_accept">I accept</string>
+    <string name="msg1_1">
+   Before using this application, you should know that when you log in , we automatically save your account information on the official application website, and this information may be includes email, phone number, name... of your account.\n
+This information is collect for the following reasons:\n
+1- When you write any inappropriate words and phrases in the conversations screen, we use your account to block it and prevent you from chatting again.\n
+2- Any information collected from your account is for display in the Conversations screen..\n
+3 - Your account is also save with us in order to facilitate communication with us in solving any problem.\n
+4- The account may also be used to manage in-app advertisements and prevent invalid activities from the user.\n
+\n
+Be aware that this collected information is held securely within the site.
+    </string>
+    <string name="msg">
+        To be allowed to chat, you must comply with some conditions:\n
+        1- It is strictly forbidden to write inappropriate or indecent words or phrases.\n
+        2- If the chat screen supports sending pictures, it is strictly forbidden to send indecent images (which suggest sexual connotations, drugs, etc.).
+        \n\nAny violation of these terms will result in your account being banned, and you will be banned from chatting permanently.</string>
 </resources>

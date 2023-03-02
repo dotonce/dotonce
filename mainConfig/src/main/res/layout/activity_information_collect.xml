@@ -1,0 +1,119 @@
+<RelativeLayout
+    android:background="@color/white"
+    android:id="@+id/layout_accept"
+    android:theme="@style/Theme.MaterialComponents.Light"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="5dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/layout_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+
+                android:textAllCaps="true"
+                android:id="@+id/text_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="@string/user_collect"
+                android:textSize="25sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_title"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="@string/msg1_1"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_below="@+id/text_detail"
+                android:id="@id/view1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/silver"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_below="@+id/view1"
+                android:textAllCaps="true"
+                android:id="@+id/text_title_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="@string/chat_terms"
+                android:textSize="25sp" />
+            <androidx.appcompat.widget.AppCompatTextView
+
+                android:id="@+id/text_detail_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_title_2"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="@string/msg"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+        </RelativeLayout>
+    </ScrollView>
+    <RelativeLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layout_bottom">
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkbox_1"
+            app:buttonTint="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/i_accept" />
+
+        <RelativeLayout
+            android:gravity="center"
+            android:layout_below="@+id/checkbox_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/layout_policy">
+
+        </RelativeLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_ok"
+            app:backgroundTint="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layout_policy"
+            android:layout_centerHorizontal="true"
+            android:enabled="false"
+            android:text="@string/ok"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+
+</RelativeLayout>
