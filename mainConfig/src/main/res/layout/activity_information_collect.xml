@@ -1,5 +1,4 @@
 <RelativeLayout
-    android:background="@color/white"
     android:id="@+id/layout_accept"
     android:theme="@style/Theme.MaterialComponents.Light"
     android:layout_width="match_parent"

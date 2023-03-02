@@ -3,6 +3,7 @@ package com.dotonce.mainconfig.MainFixed;
 import com.dotonce.mainconfig.R;
 
 public class AppMainSettings {
+    public static int check_style = R.style.defaultStyle;
     public static int toolbar_navigation_tint = R.color.black;
     public static int toolbar_statusColor = R.color.white;
     public static int toolbar_titleStyle = R.style.defaultStyle;

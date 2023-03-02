@@ -3,12 +3,9 @@ package com.dotonce.mainconfig.Views;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.res.ColorStateList;
-import android.os.Build;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.CompoundButton;
-import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -41,14 +38,13 @@ public class InformationCollect {
             Paris.style(text_title2).apply(AppMainSettings.main_title);
             Paris.style(text_detail).apply(AppMainSettings.main_detail);
             Paris.style(text_detail2).apply(AppMainSettings.main_detail);
+            Paris.style(checkBox).apply(AppMainSettings.check_style);
+            Paris.style(radioButtonAR).apply(AppMainSettings.check_style);
+            Paris.style(radioButtonEN).apply(AppMainSettings.check_style);
             Paris.style(layout_accept).apply(AppMainSettings.main_background);
             text_title.setTextSize(TypedValue.COMPLEX_UNIT_SP,22f);
             text_title2.setTextSize(TypedValue.COMPLEX_UNIT_SP,22f);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                radioButtonAR.setButtonTintList(ColorStateList.valueOf(context.getResources().getColor(AppMainSettings.mainProgressColor)));
-                radioButtonEN.setButtonTintList(ColorStateList.valueOf(context.getResources().getColor(AppMainSettings.mainProgressColor)));
-                checkBox.setButtonTintList(ColorStateList.valueOf(context.getResources().getColor(AppMainSettings.mainProgressColor)));
-            }
+
 
             radioButtonEN.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
