@@ -29,7 +29,7 @@ public class TestActivity extends AppMainActivity {
         AppMainSettings.main_btn = R.style.mainButton;
         LanguageManger languageManger = new LanguageManger(TestActivity.this);
         languageManger.setLanguage("ar");
-        InformationCollect.show(TestActivity.this,true);
+        InformationCollect.show(TestActivity.this,true,false);
 //        OpenVideoActivity.open(TestActivity.this,"https://dotonce.com/dollar/news_images/icon_1675965478118..mp4","الإحتباس الحراري");
 //        //OpenFeedback.open(TestActivity.this,"","","","+96170208913","","","0372");
        configurationClass.setDataFromServer(BuildConfig.VERSION_CODE, "https://dotonce.com/info/", "", "infoeveryday", getPackageName(), "", "", "","","",

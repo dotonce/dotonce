@@ -15,10 +15,29 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:id="@id/layout_1"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radio1"
+                    android:checked="true"
+                    android:text="@string/en"/>
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radio2"
+                    android:text="@string/ar"/>
+            </RadioGroup>
+
 
 
             <androidx.appcompat.widget.AppCompatTextView
-
+                android:layout_below="@+id/layout_1"
                 android:textAllCaps="true"
                 android:id="@+id/text_title"
                 android:layout_width="match_parent"
@@ -28,7 +47,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="5dp"
-                android:text="@string/user_collect"
+                android:text="@string/user_collect_en"
                 android:textSize="25sp" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -40,7 +59,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="5dp"
-                android:text="@string/msg1_1"
+                android:text="@string/use_msg_dotonce_en"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
             <View
@@ -62,7 +81,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="5dp"
-                android:text="@string/chat_terms"
+                android:text="@string/chat_terms_en"
                 android:textSize="25sp" />
             <androidx.appcompat.widget.AppCompatTextView
 
@@ -74,7 +93,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="5dp"
-                android:text="@string/msg"
+                android:text="@string/chat_msg_dotonce_en"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
         </RelativeLayout>
@@ -91,7 +110,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="@string/i_accept" />
+            android:text="@string/i_accept_en" />
 
         <RelativeLayout
             android:gravity="center"
@@ -105,14 +124,12 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_ok"
-            app:backgroundTint="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/layout_policy"
             android:layout_centerHorizontal="true"
             android:enabled="false"
-            android:text="@string/ok"
-            android:textColor="@color/white" />
+            android:text="@string/ok_en"/>
     </RelativeLayout>
 
 

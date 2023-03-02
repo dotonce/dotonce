@@ -43,11 +43,13 @@
     <string name="network_error_message">Please check your network connection</string>
     <string name="try_again">Try again</string>
     <string name="enter_a_message">Enter a message</string>
+    <string name="ok_en" translatable="false">OK</string>
+    <string name="ok_ar" translatable="false">حسناً</string>
     <string name="send">Send</string>
-    <string name="chat_terms">Chat terms</string>
-    <string name="user_collect">Collect user information</string>
-    <string name="i_accept">I accept</string>
-    <string name="msg1_1">
+    <string name="chat_terms_en" translatable="false">Chat terms</string>
+    <string name="user_collect_en" translatable="false">Collect user information</string>
+    <string name="i_accept_en" translatable="false">I accept</string>
+    <string name="use_msg_dotonce_en" translatable="false">
    Before using this application, you should know that when you log in , we automatically save your account information on the official application website, and this information may be includes email, phone number, name... of your account.\n
 This information is collect for the following reasons:\n
 1- When you write any inappropriate words and phrases in the conversations screen, we use your account to block it and prevent you from chatting again.\n
@@ -57,9 +59,28 @@ This information is collect for the following reasons:\n
 \n
 Be aware that this collected information is held securely within the site.
     </string>
-    <string name="msg">
+    <string name="chat_msg_dotonce_en" translatable="false">
         To be allowed to chat, you must comply with some conditions:\n
         1- It is strictly forbidden to write inappropriate or indecent words or phrases.\n
         2- If the chat screen supports sending pictures, it is strictly forbidden to send indecent images (which suggest sexual connotations, drugs, etc.).
         \n\nAny violation of these terms will result in your account being banned, and you will be banned from chatting permanently.</string>
+    <string name="chat_terms_ar" translatable="false">شروط الدردشة</string>
+    <string name="user_collect_ar" translatable="false">جمع معلومات المستخدم</string>
+    <string name="i_accept_ar" translatable="false">أنا أوافق</string>
+    <string name="use_msg_dotonce_ar" translatable="false">
+قبل استخدام هذا التطبيق ، يجب أن تعلم أنه عند تسجيل الدخول ، نقوم تلقائيًا بحفظ معلومات حسابك على موقع الويب الرسمي للتطبيق ، وقد تتضمن هذه المعلومات البريد الإلكتروني ورقم الهاتف والإسم ... لحسابك. \n
+يتم تجميع هذه المعلومات للأسباب التالية: \n
+1- عندما تكتب أي كلمات وعبارات غير لائقة في شاشة المحادثات ، فإننا نستخدم حسابك لحظره ومنعك من الدردشة مرة أخرى. \n
+2- أي معلومات يتم جمعها من حسابك يتم عرضها في شاشة المحادثات .. \n
+3 - يتم حفظ حسابك معنا أيضًا من أجل تسهيل التواصل معنا لحل أي مشكلة. \n
+4- يمكن استخدام الحساب أيضًا لإدارة الإعلانات داخل التطبيق ومنع الأنشطة غير الصالحة من المستخدم. \n
+\n
+كن على علم بأن هذه المعلومات التي تم جمعها محفوظة بشكل آمن داخل الموقع.
+    </string>
+    <string name="chat_msg_dotonce_ar" translatable="false">للسماح لك بالدردشة، يجب الالتزام ببعض الشروط:\n
+         1- يمنع منعاً باتاً كتابة كلمات أو عبارات غير لائقة أو بذيئة. \n
+         2- إذا كانت شاشة الدردشة تدعم إرسال الصور ، فيمنع منعاً باتاً إرسال صور غير لائقة (توحي بدلالات جنسية ، مخدرات ، إلخ).
+         \n\nأي انتهاك لهذه الشروط سيؤدي الى حظر حسابك، ومنعك من الدردشة بشكل دائم.</string>
+    <string name="en">EN</string>
+    <string name="ar">AR</string>
 </resources>
