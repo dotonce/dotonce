@@ -81,7 +81,15 @@ public class InformationCollect {
                text_title2.setVisibility(View.GONE);
                text_detail2.setVisibility(View.GONE);
             }
-            checkBox.setOnCheckedChangeListener((compoundButton, b) -> btn.setEnabled(b));
+            checkBox.setOnCheckedChangeListener((compoundButton, b) ->{
+                if(b){
+                    btn.setEnabled(true);
+                    btn.setAlpha(1f);
+                }else {
+                    btn.setEnabled(false);
+                    btn.setAlpha(0.5f);
+                }
+            });
             btn.setOnClickListener(view -> {
                 SharedPreferences.Editor editor = context.getSharedPreferences("user_collect", Context.MODE_PRIVATE).edit();
                 editor.putString("chat_term", "1");
