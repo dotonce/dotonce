@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="defaultStyle">
-        <item name="backgroundTint">@null</item>
-        <item name="android:background">@color/red</item>
+
     </style>
     <style name="flipperImage">
         <item name="cornerFamilyBottomLeft">rounded</item>
