@@ -1,5 +1,6 @@
 package com.dotonce.dotonce;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -20,6 +21,7 @@ public class TestActivity extends AppMainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
         setMethods("", "");
+
 
         setInit();
         //LoadingLayout.show(TestActivity.this);

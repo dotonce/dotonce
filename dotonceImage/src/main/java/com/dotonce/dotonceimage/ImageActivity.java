@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
@@ -83,11 +84,21 @@ public class ImageActivity extends AppCompatClass implements OnImagesSelected{
         );
     }
     public void checkPermission() {
-        if (ActivityCompat.checkSelfPermission(ImageActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
-            goIntentMedia();
-        } else {
-            ActivityCompat.requestPermissions(ImageActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 100);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ActivityCompat.checkSelfPermission(ImageActivity.this, Manifest.permission.READ_MEDIA_IMAGES) == PackageManager.PERMISSION_GRANTED) {
+                goIntentMedia();
+            }else{
+                ActivityCompat.requestPermissions(ImageActivity.this, new String[]{Manifest.permission.READ_MEDIA_IMAGES}, 100);
+            }
+        }else{
+
+            if (ActivityCompat.checkSelfPermission(ImageActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                goIntentMedia();
+            } else {
+                ActivityCompat.requestPermissions(ImageActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 100);
+            }
         }
+
     }
 
     @Override
@@ -100,14 +111,26 @@ public class ImageActivity extends AppCompatClass implements OnImagesSelected{
         }
     }
     public void goIntentMedia() {
-        if (ActivityCompat.checkSelfPermission(ImageActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
-            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-            intent.setType(chooser_type+"/*");
-            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, chooser_multiple);
-            activityResultLauncherMedia.launch(intent);
-        } else {
-            ActivityCompat.requestPermissions(ImageActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 100);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ActivityCompat.checkSelfPermission(ImageActivity.this, Manifest.permission.READ_MEDIA_IMAGES) == PackageManager.PERMISSION_GRANTED) {
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.setType(chooser_type+"/*");
+                intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, chooser_multiple);
+                activityResultLauncherMedia.launch(intent);
+            } else {
+                ActivityCompat.requestPermissions(ImageActivity.this, new String[]{Manifest.permission.READ_MEDIA_IMAGES}, 100);
+            }
+        }else{
+            if (ActivityCompat.checkSelfPermission(ImageActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.setType(chooser_type+"/*");
+                intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, chooser_multiple);
+                activityResultLauncherMedia.launch(intent);
+            } else {
+                ActivityCompat.requestPermissions(ImageActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 100);
+            }
         }
+
     }
 
     /**
