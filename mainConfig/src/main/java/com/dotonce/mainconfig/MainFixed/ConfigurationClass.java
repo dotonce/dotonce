@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
@@ -20,6 +21,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class ConfigurationClass {
     private final UserData userData;
@@ -153,6 +155,10 @@ public class ConfigurationClass {
              }, error -> Log.d(TAG + "_URL", error.toString()));
 
              RequestQueue requestQueue = Volley.newRequestQueue(context);
+         stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+                 (int) TimeUnit.SECONDS.toMillis(20),
+                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
              requestQueue.add(stringRequest);
          }
 
@@ -290,6 +296,10 @@ public class ConfigurationClass {
             }, error -> Log.d(TAG + "_URL", error.toString()));
 
             RequestQueue requestQueue = Volley.newRequestQueue(context);
+            stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+                    (int) TimeUnit.SECONDS.toMillis(20),
+                    DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                    DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
             requestQueue.add(stringRequest);
         } else {
             MainDialog.show(context, R.drawable.ic_network_error, context.getString(R.string.network_error_title),

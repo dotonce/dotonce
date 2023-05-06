@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.airbnb.paris.Paris;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
@@ -27,6 +28,7 @@ import com.google.android.material.button.MaterialButton;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class MainFeedback extends AppCompatClass {
     private String toolbar_title, toolbar_subtitle, email, phone,country_id,package_name,key;
@@ -127,6 +129,10 @@ public class MainFeedback extends AppCompatClass {
                                 }
                             };
                             RequestQueue requestQueue = Volley.newRequestQueue(MainFeedback.this);
+                            stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+                                    (int) TimeUnit.SECONDS.toMillis(20),
+                                    DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                                    DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
                             requestQueue.add(stringRequest);
                         }
 
