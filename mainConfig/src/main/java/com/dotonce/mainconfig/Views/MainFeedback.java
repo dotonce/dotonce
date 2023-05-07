@@ -22,6 +22,7 @@ import com.dotonce.mainconfig.MainFixed.LoadingLayout;
 import com.dotonce.mainconfig.MainFixed.MainDialog;
 import com.dotonce.mainconfig.MainFixed.MainServerConfig;
 import com.dotonce.mainconfig.MainFixed.MainTopics;
+import com.dotonce.mainconfig.MainFixed.MySSL;
 import com.dotonce.mainconfig.Notifications.Notification;
 import com.dotonce.mainconfig.R;
 import com.google.android.material.button.MaterialButton;
@@ -128,7 +129,7 @@ public class MainFeedback extends AppCompatClass {
                                     return map;
                                 }
                             };
-                            RequestQueue requestQueue = Volley.newRequestQueue(MainFeedback.this);
+                            RequestQueue requestQueue = Volley.newRequestQueue(MainFeedback.this, MySSL.getCert(MainFeedback.this));
                             stringRequest.setRetryPolicy(new DefaultRetryPolicy(
                                     (int) TimeUnit.SECONDS.toMillis(20),
                                     2,

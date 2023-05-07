@@ -154,7 +154,7 @@ public class ConfigurationClass {
                  }
              }, error -> Log.d(TAG + "_URL", error.toString()));
 
-             RequestQueue requestQueue = Volley.newRequestQueue(context);
+             RequestQueue requestQueue = Volley.newRequestQueue(context, MySSL.getCert(context));
          stringRequest.setRetryPolicy(new DefaultRetryPolicy(
                  (int) TimeUnit.SECONDS.toMillis(20),
                  2,
@@ -295,7 +295,7 @@ public class ConfigurationClass {
                 }
             }, error -> Log.d(TAG + "_URL", error.toString()));
 
-            RequestQueue requestQueue = Volley.newRequestQueue(context);
+            RequestQueue requestQueue = Volley.newRequestQueue(context, MySSL.getCert(context));
             stringRequest.setRetryPolicy(new DefaultRetryPolicy(
                     (int) TimeUnit.SECONDS.toMillis(20),
                     2,
