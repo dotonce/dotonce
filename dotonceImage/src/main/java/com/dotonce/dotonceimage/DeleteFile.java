@@ -34,7 +34,7 @@ public class DeleteFile {
         RequestQueue requestQueue = Volley.newRequestQueue(activity);
         stringRequest.setRetryPolicy(new DefaultRetryPolicy(
                 (int) TimeUnit.SECONDS.toMillis(20),
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.2,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
         requestQueue.add(stringRequest);

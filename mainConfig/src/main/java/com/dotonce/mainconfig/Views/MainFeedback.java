@@ -131,7 +131,7 @@ public class MainFeedback extends AppCompatClass {
                             RequestQueue requestQueue = Volley.newRequestQueue(MainFeedback.this);
                             stringRequest.setRetryPolicy(new DefaultRetryPolicy(
                                     (int) TimeUnit.SECONDS.toMillis(20),
-                                    DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                                    2,
                                     DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
                             requestQueue.add(stringRequest);
                         }
