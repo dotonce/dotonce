@@ -2,6 +2,7 @@ package com.dotonce.dotonce;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.dotonce.mainconfig.Interfaces.OnResponseOne;
@@ -9,6 +10,7 @@ import com.dotonce.mainconfig.Interfaces.OnResponsetwo;
 import com.dotonce.mainconfig.MainAdapter.MainImagesAdapter;
 import com.dotonce.mainconfig.MainFixed.AppMainSettings;
 import com.dotonce.mainconfig.MainFixed.LanguageManger;
+import com.dotonce.mainconfig.MainFixed.MySSL;
 import com.dotonce.mainconfig.Views.AppMainActivity;
 import com.dotonce.mainconfig.Views.InformationCollect;
 import com.dotonce.video.OpenVideoActivity;
