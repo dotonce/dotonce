@@ -5,11 +5,11 @@ plugins {
 
 android {
     namespace 'com.dotonce.mainconfig'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         minSdk 19
-        targetSdk 33
+        targetSdk 34
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
         multiDexEnabled true
@@ -37,10 +37,12 @@ dependencies {
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.work:work-runtime:2.8.1'
-    implementation 'com.google.firebase:firebase-ads:22.0.0'
+    implementation 'com.google.firebase:firebase-ads:22.4.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation 'com.google.guava:guava:30.1-jre' // Use the latest version
+
 }
 
 
@@ -51,7 +53,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.dotonce'
                 artifactId = 'config'
-                version = '1.8.1'
+                version = '1.8.2'
             }
         }
     }
