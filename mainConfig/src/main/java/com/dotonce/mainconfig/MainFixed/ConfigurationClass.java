@@ -1,8 +1,12 @@
 package com.dotonce.mainconfig.MainFixed;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
+import android.os.Build;
 import android.util.Log;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -21,6 +25,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class ConfigurationClass {
@@ -38,6 +43,66 @@ public class ConfigurationClass {
          userData = new UserData(context);
          sharedPreferences = context.getSharedPreferences("appMainSettings", Context.MODE_PRIVATE);
          editor = context.getSharedPreferences("appMainSettings", Context.MODE_PRIVATE).edit();
+     }
+
+     public void checkRequireDialog(int app_version, int icon, String database, String package_name){
+         StringRequest stringRequest = new StringRequest(Request.Method.GET, MainServerConfig.COMMON_IP + "select_required_dialog.php?key="+MainServerConfig.DATABASE_VERSION
+                 +"&database="+database+"&package_name="+package_name, response -> {
+
+                     try {
+
+                         JSONObject jsonObject = new JSONObject(response);
+                         JSONArray jsonArray = new JSONArray(jsonObject.getString("data"));
+                         if (jsonArray.length() > 0) {
+                             JSONObject jSONObject = jsonArray.getJSONObject(0);
+                             String title = jSONObject.getString("title");
+                             String message = jSONObject.getString("message");
+                             String btn = jSONObject.getString("buttons");
+                             String url = jSONObject.getString("url");
+                             String [] buttons = btn.split(",");
+                             String vn = jSONObject.getString("version");
+                             if(buttons.length == 0){
+                                 buttons = new String[]{"",""};
+                             }
+
+                             if(vn.equals(String.valueOf(app_version))){
+                                 String[] finalButtons = buttons;
+                                 MainDialog.show(context, icon, title, message, buttons[0], buttons[1], true, new onDialogAction() {
+                                             @Override
+                                             public void onOkClick() {
+                                                 Uri uri = Uri.parse(url);
+                                                 Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+                                                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                                                     goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
+                                                             Intent.FLAG_ACTIVITY_NEW_DOCUMENT |
+                                                             Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+                                                 }
+                                                 try {
+                                                     context.startActivity(goToMarket);
+                                                 } catch (ActivityNotFoundException e) {
+                                                     context.startActivity(new Intent(Intent.ACTION_VIEW,
+                                                             Uri.parse(url)));
+                                                 }
+                                                 context.finish();
+                                             }
+
+                                             @Override
+                                             public void onCancelClick() {
+                                                 if(!finalButtons[1].toLowerCase(Locale.US).equals("cancel")){
+                                                     context.finish();
+                                                 }
+                                             }
+                                         });
+                             }
+                         }
+                     }catch (Exception | Error ignored){
+
+                     }
+                 }, error -> {
+
+                 });
+         RequestQueue requestQueue = Volley.newRequestQueue(context);
+         requestQueue.add(stringRequest);
      }
 
      private void setData (int appVersion, String IP_AND_DIR, String countryId, String database, String packageName ,String phone, String email, OnMainImagesLoaded onMainImagesLoaded){

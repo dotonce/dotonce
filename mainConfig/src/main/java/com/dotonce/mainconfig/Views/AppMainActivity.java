@@ -1,5 +1,6 @@
 package com.dotonce.mainconfig.Views;
 
+import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
@@ -15,6 +16,7 @@ import com.dotonce.mainconfig.Interfaces.PublisherName;
 import com.dotonce.mainconfig.Interfaces.onDialogAction;
 import com.dotonce.mainconfig.MainAdapter.MainImagesAdapter;
 import com.dotonce.mainconfig.MainFixed.AppCompatClass;
+import com.dotonce.mainconfig.MainFixed.DotonceGDPR;
 import com.dotonce.mainconfig.MainFixed.MainDialog;
 import com.dotonce.mainconfig.R;
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
@@ -28,6 +30,11 @@ public class AppMainActivity extends AppCompatClass {
     public RelativeLayout layout_images;
     public MainImagesAdapter mainImagesAdapter;
 
+
+    public void setGDPR(Activity activity){
+        DotonceGDPR gdpr = new DotonceGDPR(activity);
+        gdpr.set();
+    }
 
     public void setInit() {
         handler=new Handler();
@@ -84,6 +91,7 @@ public class AppMainActivity extends AppCompatClass {
 
     @Override
     public void onBackPressed() {
+        super.onBackPressed();
         onExit();
     }
 

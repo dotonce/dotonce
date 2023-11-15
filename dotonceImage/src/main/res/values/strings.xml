@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <plurals name="adding_image">
-        <item quantity="one">Adding image</item>
-        <item quantity="other">Adding images</item>
-    </plurals>
-</resources>
