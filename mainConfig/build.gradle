@@ -22,8 +22,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 }
 
@@ -53,7 +53,7 @@ project.afterEvaluate {
             library(MavenPublication) {
                 setGroupId "com.dotonce"
                 setArtifactId "config"
-                version "1.8.4"
+                version "1.8.5"
                 artifact bundleDebugAar
             }
         }
