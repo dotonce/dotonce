@@ -47,14 +47,14 @@ dependencies {
 
 }
 
-project.afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                setGroupId "com.dotonce"
-                setArtifactId "config"
-                version "1.8.6"
-                artifact bundleDebugAar
+afterEvaluate {
+    publishing{
+        publications{
+            release(MavenPublication){
+                from components.release
+                groupId = 'com.dotonce'
+                artifactId = 'config'
+                version = '1.8.7'
             }
         }
     }
