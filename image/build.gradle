@@ -44,10 +44,10 @@ dependencies {
 project.afterEvaluate {
     publishing {
         publications {
-            library(MavenPublication) {
+            release(MavenPublication) {
                 setGroupId "com.dotonce"
                 setArtifactId "image"
-                version "1.8.5"
+                version "1.8.6"
                 artifact bundleDebugAar
             }
         }
