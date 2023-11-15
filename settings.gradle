@@ -17,5 +17,5 @@ dependencyResolutionManagement {
 rootProject.name = "dotonce"
 include ':app'
 include ':mainConfig'
-include ':dotonceImage'
 include ':video'
+include ':image'
