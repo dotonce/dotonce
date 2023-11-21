@@ -5,12 +5,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <com.google.android.material.appbar.MaterialToolbar
-        android:layout_width="match_parent"
-        android:layout_marginTop="20dp"
-        app:navigationIcon="@drawable/ic_close"
-        android:layout_height="wrap_content"
-        android:id="@+id/generalToolbar"/>
 
 
     <FrameLayout android:id="@+id/video_layout"
@@ -36,4 +30,13 @@
             app:uvv_scalable="true" />
 
     </FrameLayout>
+    <com.google.android.material.appbar.MaterialToolbar
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        app:navigationIcon="@drawable/ic_close"
+        android:layout_height="wrap_content"
+        android:id="@+id/generalToolbar"/>
+
 </RelativeLayout>

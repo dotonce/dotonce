@@ -2,6 +2,7 @@ package com.dotonce.video;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -22,9 +23,9 @@ public class VideoActivity extends AppCompatActivity implements UniversalVideoVi
 
 
     private static final String SEEK_POSITION_KEY = "SEEK_POSITION_KEY";
-    int mSeekPosition;
+    int mSeekPosition,rawFile;
     private int cachedHeight;
-    private boolean isFullscreen;
+    private boolean isFullscreen,fitXY, isFile = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,9 @@ public class VideoActivity extends AppCompatActivity implements UniversalVideoVi
         if(bundle !=null){
             VIDEO_URL = bundle.getString("url","");
             title = bundle.getString("title","");
+            fitXY = bundle.getBoolean("fitXY",false);
+            rawFile = bundle.getInt("rawFile",0);
+            isFile = bundle.getBoolean("isFile",false);
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             this.getWindow().setStatusBarColor(getResources().getColor(R.color.black));
@@ -51,7 +55,7 @@ public class VideoActivity extends AppCompatActivity implements UniversalVideoVi
         mVideoView.setOnCompletionListener(mp -> {
 
         });
-
+        mVideoView.setFitXY(fitXY);
     }
 
 
@@ -68,12 +72,14 @@ public class VideoActivity extends AppCompatActivity implements UniversalVideoVi
         } else {
             ViewGroup.LayoutParams layoutParams = mVideoLayout.getLayoutParams();
             layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT;
-            layoutParams.height = this.cachedHeight;
+           // layoutParams.height = this.cachedHeight;
+            layoutParams.height = ViewGroup.LayoutParams.MATCH_PARENT;
             mVideoLayout.setLayoutParams(layoutParams);
 
         }
 
         switchTitleBar(!isFullscreen);
+        FullScreen.set(VideoActivity.this);
     }
     private void switchTitleBar(boolean show) {
 
@@ -101,6 +107,13 @@ public class VideoActivity extends AppCompatActivity implements UniversalVideoVi
         }
 
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        FullScreen.set(VideoActivity.this);
+    }
+
     @Override
     public void onPause(MediaPlayer mediaPlayer) {
 
@@ -127,6 +140,9 @@ public class VideoActivity extends AppCompatActivity implements UniversalVideoVi
             mSeekPosition = mVideoView.getCurrentPosition();
             mVideoView.pause();
         }
+        if (this.isFullscreen) {
+            mVideoView.setFullscreen(false);
+        }
     }
     private void setVideoAreaSize() {
         mVideoLayout.post(() -> {
@@ -135,8 +151,15 @@ public class VideoActivity extends AppCompatActivity implements UniversalVideoVi
             ViewGroup.LayoutParams videoLayoutParams = mVideoLayout.getLayoutParams();
             videoLayoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT;
             videoLayoutParams.height = cachedHeight;
+            videoLayoutParams.height = ViewGroup.LayoutParams.MATCH_PARENT;;
             mVideoLayout.setLayoutParams(videoLayoutParams);
-            mVideoView.setVideoPath(VIDEO_URL);
+            String videoPath = "android.resource://" + getPackageName() + "/" + rawFile;
+
+            if(isFile){
+                mVideoView.setVideoURI(Uri.parse(videoPath));
+            }else {
+                mVideoView.setVideoPath(VIDEO_URL);
+            }
             mVideoView.requestFocus();
             mVideoView.start();
         });
@@ -147,17 +170,10 @@ public class VideoActivity extends AppCompatActivity implements UniversalVideoVi
     }
 
     @Override
-    protected void onRestoreInstanceState(Bundle outState) {
+    protected void onRestoreInstanceState(@NonNull Bundle outState) {
         super.onRestoreInstanceState(outState);
         mSeekPosition = outState.getInt(SEEK_POSITION_KEY);
 
     }
-    @Override
-    public void onBackPressed() {
-        if (this.isFullscreen) {
-            mVideoView.setFullscreen(false);
-        } else {
-            super.onBackPressed();
-        }
-    }
+
 }
