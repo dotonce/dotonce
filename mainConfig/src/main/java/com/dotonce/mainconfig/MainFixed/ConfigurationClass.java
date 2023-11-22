@@ -165,7 +165,7 @@ public class ConfigurationClass {
                                  }else {
                                      version2 = Integer.parseInt(version);
                                  }
-                                 if(version.equals("")  | (appVersion <= version2)){
+                                 if(version.equals("")  | (appVersion == version2)){
                                      if(country_id.equals("") | country_id.equals(countryId)){
                                          arrayList.add(new MainImagesModel(id2, version, name, isLink, action, action_ios,country_id,extra1,extra2));
                                      }
