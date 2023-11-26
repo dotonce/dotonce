@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.widget.RelativeLayout;
 
+import androidx.activity.OnBackPressedCallback;
+import androidx.annotation.MainThread;
 import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 
@@ -16,6 +18,7 @@ import com.dotonce.mainconfig.Interfaces.PublisherName;
 import com.dotonce.mainconfig.Interfaces.onDialogAction;
 import com.dotonce.mainconfig.MainAdapter.MainImagesAdapter;
 import com.dotonce.mainconfig.MainFixed.AppCompatClass;
+import com.dotonce.mainconfig.MainFixed.AppVersionUtil;
 import com.dotonce.mainconfig.MainFixed.DotonceGDPR;
 import com.dotonce.mainconfig.MainFixed.MainDialog;
 import com.dotonce.mainconfig.R;
@@ -30,6 +33,26 @@ public class AppMainActivity extends AppCompatClass {
     public RelativeLayout layout_images;
     public MainImagesAdapter mainImagesAdapter;
 
+
+
+    public void allFunctionsInMain(Activity activity, boolean checkRequire, int requireIcon){
+        setGDPR(activity);
+        if(checkRequire){
+            try {
+                int versionCode = AppVersionUtil.getAppVersionCode(getApplicationContext());
+                configurationClass.checkRequireDialog(versionCode, requireIcon,
+                        "commonData", getPackageName());
+            } catch (Exception | Error ignored) {
+            }
+        }
+
+        getOnBackPressedDispatcher().addCallback(new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                onExit();
+            }
+        });
+    }
 
     public void setGDPR(Activity activity){
         DotonceGDPR gdpr = new DotonceGDPR(activity);
@@ -47,6 +70,7 @@ public class AppMainActivity extends AppCompatClass {
     public void onPause() {
         removeRunnable();
         super.onPause();
+
     }
 
     @Override
@@ -89,11 +113,8 @@ public class AppMainActivity extends AppCompatClass {
                 });
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        onExit();
-    }
+
+
 
     public void shareApp(String packageName, String app_name) {
         Intent sharingIntent = new Intent(Intent.ACTION_SEND);

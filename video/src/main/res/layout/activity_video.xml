@@ -24,6 +24,8 @@
             app:uvv_fitXY="false" />
 
         <com.dotonce.video.UniversalMediaController
+            android:layoutDirection="ltr"
+
             android:id="@+id/media_controller"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
