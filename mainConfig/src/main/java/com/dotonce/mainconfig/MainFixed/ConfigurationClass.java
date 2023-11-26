@@ -34,6 +34,8 @@ public class ConfigurationClass {
     private final SharedPreferences sharedPreferences;
     private final SharedPreferences.Editor editor;
 
+    private String API = "";
+
     private ArrayList<MainImagesModel> arrayList;
 
     private final Activity context;
@@ -399,7 +401,7 @@ public class ConfigurationClass {
                  editor.putString("version", version);
                  editor.putString("version_ios", version_ios);
                  editor.putString("update_log", update_log);
-                 editor.putString("appName", api);
+                 API = api;
                  editor.putString("admob_id", admob_id);
                  editor.putString("admob_banner_id", admob_banner_id);
                  editor.putString("unity_game_id", unity_game_id);
@@ -436,7 +438,7 @@ public class ConfigurationClass {
      public String getAdType(){return sharedPreferences.getString("ad_type","");}
      public String getSplashAdType(){return sharedPreferences.getString("splash_ad_type","");}
      public String getUnityPlacementId(){return sharedPreferences.getString("unity_placement_id","");}
-     public String getApi(){return sharedPreferences.getString("appName","");}
+     public String getApi(){return API;}
      public long getAdmobTime(){return sharedPreferences.getLong("admob_time",System.currentTimeMillis());}
      public long getApplovinTime(){return sharedPreferences.getLong("applovin_time",System.currentTimeMillis());}
      public String getApplovinId(){return sharedPreferences.getString("applovin_id","");}
