@@ -29,9 +29,9 @@ android {
 dependencies {
     implementation project(path: ':mainConfig')
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.10.0'
+    implementation 'com.google.android.material:material:1.11.0'
     implementation 'com.android.volley:volley:1.2.1'
-    implementation 'androidx.exifinterface:exifinterface:1.3.6'
+    implementation 'androidx.exifinterface:exifinterface:1.3.7'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
@@ -48,7 +48,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.dotonce'
                 artifactId = 'image'
-                version = '1.9.5'
+                version = '1.9.6'
             }
         }
     }
