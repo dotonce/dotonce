@@ -13,7 +13,7 @@ public class CheckUpdate {
     public static void check(Activity activity, int appVersion, String packageName){
         ConfigurationClass configurationClass= new ConfigurationClass(activity);
         int version = 0;
-        if(!configurationClass.getVersion().equals("")){
+        if(!configurationClass.getVersion().isEmpty()){
             try {
                 version = Integer.parseInt(configurationClass.getVersion());
             }catch (Exception | Error ignored){}

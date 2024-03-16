@@ -162,13 +162,13 @@ public class ConfigurationClass {
                                  String extra2 = jSONObject1.getString("extra2");
                                  String country_id = jSONObject1.getString("country_id");
                                  int version2;
-                                 if(version.equals("")){
+                                 if(version.isEmpty()){
                                      version2 = 9999;
                                  }else {
                                      version2 = Integer.parseInt(version);
                                  }
-                                 if(version.equals("")  | (appVersion == version2)){
-                                     if(country_id.equals("") | country_id.equals(countryId)){
+                                 if(version.isEmpty()  | (appVersion == version2)){
+                                     if(country_id.isEmpty() | country_id.equals(countryId)){
                                          arrayList.add(new MainImagesModel(id2, version, name, isLink, action, action_ios,country_id,extra1,extra2));
                                      }
                                  }
@@ -201,12 +201,12 @@ public class ConfigurationClass {
                              String banned_time = jSONObject3.getString("banTime");
                              String last_active = jSONObject3.getString("last_active");
                              long banned_time2, last_active2;
-                             if(banned_time.equals("")){
+                             if(banned_time.isEmpty()){
                                  banned_time2 = System.currentTimeMillis();
                              }else {
                                  banned_time2 = Long.parseLong(banned_time);
                              }
-                             if(last_active.equals("")){
+                             if(last_active.isEmpty()){
                                  last_active2 = System.currentTimeMillis();
                              }else {
                                  last_active2 = Long.parseLong(last_active);
@@ -287,13 +287,13 @@ public class ConfigurationClass {
                                 String extra2 = jSONObject1.getString("extra2");
                                 String country_id = jSONObject1.getString("country_id");
                                 int version2;
-                                if(version.equals("")){
+                                if(version.isEmpty()){
                                     version2 = 9999;
                                 }else {
                                     version2 = Integer.parseInt(version);
                                 }
-                                if(version.equals("")  | (appVersion == version2)){
-                                    if(country_id.equals("") | country_id.equals(countryId)){
+                                if(version.isEmpty()  | (appVersion == version2)){
+                                    if(country_id.isEmpty() | country_id.equals(countryId)){
                                         arrayList.add(new MainImagesModel(id2, version, name, isLink, action, action_ios,country_id,extra1,extra2));
                                     }
                                 }
@@ -326,12 +326,12 @@ public class ConfigurationClass {
                             String banned_time = jSONObject3.getString("banTime");
                             String last_active = jSONObject3.getString("last_active");
                             long banned_time2, last_active2;
-                            if(banned_time.equals("")){
+                            if(banned_time.isEmpty()){
                                 banned_time2 = System.currentTimeMillis();
                             }else {
                                 banned_time2 = Long.parseLong(banned_time);
                             }
-                            if(last_active.equals("")){
+                            if(last_active.isEmpty()){
                                 last_active2 = System.currentTimeMillis();
                             }else {
                                 last_active2 = Long.parseLong(last_active);
@@ -342,7 +342,7 @@ public class ConfigurationClass {
 
                         }
                     }catch (Exception | Error error){Log.d(TAG + "_USER", error.toString());}
-                    if(!response_1_table.equals("")){
+                    if(!response_1_table.isEmpty()){
                         try {
                             JSONArray jsonArrayOne = new JSONArray(jsonObject.getJSONObject("data").getString("response1"));
                             onResponseOne.onResponseOne(jsonArrayOne.toString());
@@ -350,7 +350,7 @@ public class ConfigurationClass {
                             onResponseOne.onFailedOne(error.toString());
                         }
                     }
-                    if(!response_2_table.equals("")){
+                    if(!response_2_table.isEmpty()){
                         try {
                             JSONArray jsonArrayOne = new JSONArray(jsonObject.getJSONObject("data").getString("response2"));
                             onResponsetwo.onResponseTwo(jsonArrayOne.toString());

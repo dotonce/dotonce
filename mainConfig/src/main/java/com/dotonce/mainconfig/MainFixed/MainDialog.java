@@ -40,7 +40,7 @@ public class MainDialog {
         d_message.setText(description);
         d_btn_ok.setText(ok_text);
         d_btn_no.setText(no_text);
-        if (no_text.equals("")) {
+        if (no_text.isEmpty()) {
             d_btn_no.setVisibility(View.GONE);
         }
 

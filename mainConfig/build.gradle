@@ -8,7 +8,7 @@ android {
     compileSdk 34
 
     defaultConfig {
-        minSdk 19
+        minSdk 21
         targetSdk 34
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -37,7 +37,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.11.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.work:work-runtime:2.9.0'
-    implementation 'com.google.firebase:firebase-ads:22.6.0'
+    implementation 'com.google.firebase:firebase-ads:23.0.0'
     implementation 'com.google.firebase:firebase-appcheck:17.1.2'
     implementation 'com.google.firebase:firebase-appcheck-playintegrity:17.1.2'
     testImplementation 'junit:junit:4.13.2'
@@ -54,7 +54,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.dotonce'
                 artifactId = 'config'
-                version = '1.9.6'
+                version = '1.9.7'
             }
         }
     }

@@ -21,9 +21,7 @@ import com.dotonce.mainconfig.MainFixed.CheckLanguage;
 import com.dotonce.mainconfig.MainFixed.LoadingLayout;
 import com.dotonce.mainconfig.MainFixed.MainDialog;
 import com.dotonce.mainconfig.MainFixed.MainServerConfig;
-import com.dotonce.mainconfig.MainFixed.MainTopics;
 import com.dotonce.mainconfig.MainFixed.MySSL;
-import com.dotonce.mainconfig.Notifications.Notification;
 import com.dotonce.mainconfig.R;
 import com.google.android.material.button.MaterialButton;
 
@@ -79,20 +77,20 @@ public class MainFeedback extends AppCompatClass {
             Paris.style(btn_send).apply(AppMainSettings.main_btn);
 
         }catch (Exception | Error ignored){}
-          if(email.equals("") && phone.equals("")){
+          if(email.isEmpty() && phone.isEmpty()){
             text_email.setVisibility(View.GONE);
         }
-        if(!email.equals("")){
+        if(!email.isEmpty()){
             text_email.setText(email);
         }
-        if(!phone.equals("")){
+        if(!phone.isEmpty()){
             text_email.setText(phone);
         }
         btn_send.setOnClickListener(v -> send());
     }
 
     private void send(){
-        if(edit_description.getText().toString().trim().equals("")){
+        if(edit_description.getText().toString().trim().isEmpty()){
             Toast.makeText(this, getString(R.string.enter_a_message), Toast.LENGTH_SHORT).show();
         }else {
 
@@ -107,12 +105,7 @@ public class MainFeedback extends AppCompatClass {
                                 Toast.makeText(MainFeedback.this, response.trim(), Toast.LENGTH_SHORT).show();
                                 LoadingLayout.hide(MainFeedback.this);
                                 edit_description.setText("");
-                                String from = phone;
-                                if(from.equals("")){
-                                    from = email;
-                                }
-                                Notification.Send(MainTopics.dotonce_api, "New "+toolbar_title+" from "+ from, edit_description.getText().toString(),
-                                        "", MainTopics.dotonce_admin, MainTopics.dotonce_splash, package_name, "0", "0","","Feedbacks","");
+                                
                             }, error -> {
                             }
                             ) {
